@@ -2,6 +2,7 @@
 
 $color-gray : #545454;
 $color-lightgray : #8f8f8fc5;
+$color-superlightgray : #f0efefad;
 
 #app {
     font-family: 'Nunito', sans-serif;
@@ -11,11 +12,31 @@ $color-lightgray : #8f8f8fc5;
     color: $color-gray;
 }
 
+#nav {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: $color-superlightgray;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+    padding: 0 500px;
+    a {
+        margin: auto;
+        text-decoration: none;
+    }
+}
+
+.content {
+    top: 30px;
+    position: relative;
+}
+
 body {
     margin: 0;
 }
 
-.wavy-name {
+.wavy-name-container {
     position: relative;
     -webkit-box-reflect: below -60px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
     h3 {
