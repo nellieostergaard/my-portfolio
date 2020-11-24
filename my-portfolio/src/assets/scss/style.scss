@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 $color-gray : #545454;
+$color-lightgray : #8f8f8fc5;
 
 #app {
     font-family: 'Nunito', sans-serif;
@@ -16,35 +17,32 @@ body {
 
 .wavy-name {
     position: relative;
-    -webkit-box-reflect: below -50px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
-  }
-
-.wavy-name h2 {
-    position: relative;
-    display: inline-block;
-    font-size: 2em;
-    animation: animate 1.5s ease-in-out infinite;
-    animation-iteration-count: 1;
-    animation-delay: calc(.1s * var(--i));
-    &:nth-of-type(7) {
-        padding-left: 10px;
-    }
-  }
-  @keyframes animate {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    20% {
-      transform: translateY(-20px);
-    }
-    40% {
-      transform: translateY(0px);
+    -webkit-box-reflect: below -60px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+    h3 {
+        position: relative;
+        display: inline-block;
+        font-size: 2em;
+        color: $color-lightgray;
+        animation: animate 1.5s ease-in-out infinite;
+        animation-iteration-count: 1;
+        animation-delay: calc(.1s * var(--i));
+        &:nth-of-type(7) {
+            padding-left: 10px;
+        }
+      }
+      @keyframes animate {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        20% {
+          transform: translateY(-20px);
+        }
+        40% {
+          transform: translateY(0px);
+        }
     }
 }
 
-h3 {
-    margin: 40px 0 0;
-}
 ul {
     list-style-type: none;
     padding: 0;
