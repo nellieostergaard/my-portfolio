@@ -1,40 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
+$color-gray : #545454;
+
 #app {
     font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: $color-gray;
 }
 
 body {
     margin: 0;
 }
 
-h2 {
-    opacity: 0.5;
-    font-weight: 500;
+.wavy-name {
+    position: relative;
+    -webkit-box-reflect: below -50px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+  }
+
+.wavy-name h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    animation: animate 1.5s ease-in-out infinite;
+    animation-iteration-count: 1;
+    animation-delay: calc(.1s * var(--i));
+    &:nth-of-type(7) {
+        padding-left: 10px;
+    }
+  }
+  @keyframes animate {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-20px);
+    }
+    40% {
+      transform: translateY(0px);
+    }
 }
 
-/// Navigation
-
-.navbar-container {
-    width: 100%;
-    padding: 15px 0;
-    background-color: #f2f2f2;
-    top: 0;
-    position: sticky;
-    margin-bottom: 50px;
-    .navbar {
-        display: flex;
-        justify-content: center;
-        .nav-text {
-            margin: 0 30px;
-            font-size: 24px;
-            &:link {
-                text-decoration: none;
-            }
-        }
-    }
+h3 {
+    margin: 40px 0 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+a {
+    color: #42b983;
 }
