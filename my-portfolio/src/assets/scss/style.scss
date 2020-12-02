@@ -1,15 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 $color-gray : #545454;
-$color-lightgray : #8f8f8fc5;
-$color-superlightgray : #f0efefad;
+$color-lightgray : rgba(187, 186, 186, 0.8);
+$color-superlightgray : rgba(230, 230, 230, 0.2);
+$color-white : rgb(255,255,255);
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+    .content {
+        .welcome-text-container, .wavy-text-container {
+            margin: 0;
+            text-align: center;
+        }
+    }
+    #nav {
+        justify-content: flex-end !important;
+        padding: 5px 10px !important;
+    }
+    #nav-links {
+        display: none;
+    }
+    .hamburger-container {
+        display: inline-block;
+        cursor: pointer;
+    }
+      
+    .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: $color-white;
+    margin: 6px 0;
+    transition: 0.4s;
+    }
+
+    .hamburger-container.clicked .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+  
+    .hamburger-container.clicked .bar2 {
+        opacity: 0;
+    }
+  
+    .hamburger-container.clicked .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+      
+}
 
 #app {
     font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: $color-gray;
+    color: $color-white;
 }
 
 #nav {
@@ -24,6 +69,7 @@ $color-superlightgray : #f0efefad;
     a {
         margin: auto;
         text-decoration: none;
+        color: $color-gray;
     }
 }
 
@@ -34,16 +80,20 @@ $color-superlightgray : #f0efefad;
 
 body {
     margin: 0;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(101,204,184,1) 50%, rgba(252,176,69,1) 100%);
 }
 
-.wavy-name-container {
+.wavy-text-container {
     position: relative;
-    -webkit-box-reflect: below -60px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
-    h3 {
+    -webkit-box-reflect: below -200px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+    font-size: 4em;
+    text-align: left;
+    margin-left: 3em;
+    .wavy-text {
+        font-weight: 300;
         position: relative;
         display: inline-block;
-        font-size: 2em;
-        color: $color-lightgray;
         animation: animate 1.5s ease-in-out infinite;
         animation-iteration-count: 1;
         animation-delay: calc(.1s * var(--i));
@@ -62,6 +112,12 @@ body {
           transform: translateY(0px);
         }
     }
+}
+
+.welcome-text-container {
+    text-align: right;
+    margin-right: 8em;
+    font-size: 1.2em;
 }
 
 ul {
