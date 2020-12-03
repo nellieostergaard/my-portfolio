@@ -4,11 +4,13 @@
       <HamburgerMenu />
       <div id="nav-links">
         <router-link to="/">Home</router-link>
-        <router-link to="/project-1">project 1</router-link>
-        <router-link to="/project-2">project 2</router-link>
+        <router-link to="/project-1">Project 1</router-link>
+        <router-link to="/project-2">Project 2</router-link>
+        <router-link to="/about">About me</router-link>
       </div>
     </div>
-    <router-view class="content" />
+    <router-view id="page-content" />
+    <footer>Copyright Nellie Östergaard</footer>
   </div>
 </template>
 

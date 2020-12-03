@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-containter">
+  <div class="home">
     <WavyText :text="$store.state.bigHello" />
     <br />
     <div class="welcome-text-container">
