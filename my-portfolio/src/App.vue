@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'hamburger-open': $store.state.hamburgerIsClicked }">
     <div id="nav">
       <HamburgerMenu />
       <div id="nav-links">

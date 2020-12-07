@@ -2,7 +2,9 @@
   <div
     @click="hamburgerClickEvent()"
     :class="[
-      hamburgerIsClicked ? 'hamburger-container clicked' : 'hamburger-container'
+      $store.state.hamburgerIsClicked
+        ? 'hamburger-container clicked'
+        : 'hamburger-container'
     ]"
   >
     <div class="bar1"></div>
@@ -14,14 +16,9 @@
 <script>
 export default {
   name: "HamburgerMenu",
-  data: function() {
-    return {
-      hamburgerIsClicked: false
-    };
-  },
   methods: {
     hamburgerClickEvent() {
-      this.hamburgerIsClicked = !this.hamburgerIsClicked;
+      this.$store.commit("hamburgerMenuIsClicked");
     }
   }
 };
