@@ -10,10 +10,14 @@ export default {
   name: "WeatherComponent",
   data() {
     return {
-      weather: {}
+      weather: {
+          name: '',
+          description: '',
+          temp: 0,
+      }
     };
   },
-  beforeCreate() {
+  created() {
     this.$http
       .get('http://api.openweathermap.org/data/2.5/find?q=malmoe&type=like&appid=1d2b7517b2bbac162d8e5c7db6d7e8c6&units=metric').then((data) => {
         let weatherData = data.body.list[0];
