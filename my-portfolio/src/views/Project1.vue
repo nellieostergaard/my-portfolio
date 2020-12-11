@@ -1,14 +1,17 @@
 <template>
   <div class="project-1">
-    <h1>This is a test page</h1>
     <clock-component />
+    <weather-component />
   </div>
 </template>
 <script>
 import ClockComponent from "../components/ClockComponent.vue";
+import WeatherComponent from "../components/WeatherComponent.vue";
+
 export default {
-components: {
-  'clock-component' : ClockComponent 
- }
+  components: {
+    "clock-component": ClockComponent,
+    "weather-component": WeatherComponent
+  }
 };
 </script>

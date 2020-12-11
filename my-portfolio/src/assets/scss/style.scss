@@ -107,7 +107,11 @@ a {
     color: #42b983;
 }
 
-/* PROJECT-1 */ 
+/* PROJECT-1 */
+
+.project-1 {
+    display: flex;
+}
 
 .clock {
     width: 10rem;
@@ -137,6 +141,7 @@ a {
     background:black;
     position: absolute;
     top:50%;
+    border-radius: 10%;
     transform-origin: 100%;
     transform: rotate(90deg);
     transition: all 0.5s;
