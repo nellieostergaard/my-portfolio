@@ -6,6 +6,8 @@ $color-superlightgray : rgba(230, 230, 230, 0.2);
 $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
+$feature : #4b9aaa;
+$clock-size : 200px;
 
 #app {
     font-family: 'Nunito', sans-serif;
@@ -114,40 +116,75 @@ a {
 }
 
 .clock {
-    width: 10rem;
-    height: 10rem;
-    border: 1px solid white;
-    border-radius: 50%;
-    margin: 50px auto;
+    height: $clock-size;
+    width: $clock-size;
+    border-radius: #{$clock-size / 2};
+    display: flex;
+    justify-content: center;
     position: relative;
-    padding: 2rem;
-    box-shadow:
-      0 0 0 4px rgba(0,0,0,0.1),
-      inset 0 0 0 3px #EFEFEF,
-      inset 0 0 10px black,
-      0 0 10px rgba(0,0,0,0.2);
-  }
-
-   .clock-face {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-3px);
+    &__second,
+    &__minute,
+    &__hour, &__indicator {
+      position: absolute;
+      left: calc(50% - 1px);
+      width: 2px;
+      background: $color-white;
+      transform-origin: bottom center;
+      z-index: 2;
+      border-radius: 1px;
     }
+    &__second {
+      height: #{($clock-size / 2) - 10};
+      margin-top: 10px;
+      background: $feature;
+      animation: time 60s infinite steps(60);
+      z-index: 3;
+    }
+    &__minute {
+      height: #{($clock-size / 2) - 20};
+      margin-top: 20px;
+      opacity: 0.75;
+      animation: time 3600s linear infinite;
+    }
+    &__hour {
+      height: #{($clock-size / 2) - 40};
+      margin-top: 40px;
+      animation: time 43200s linear infinite;
+    }
+    &__indicator {
+        height: #{($clock-size / 2) - 2};
+        border-top: 2px solid $feature;
+        background: none;
+      }
+      &__indicator:nth-of-type(5n) {
+        opacity: 1;
+        height: #{($clock-size / 2) - 7};
+        border-top: 7px solid $color-white;
+      }
+      &__axis {
+        background: $feature;
+        width: 5px;
+        height: 5px;
+        border-radius: 3px;
+        position: absolute;
+        z-index: 4;
+        top: #{$clock-size / 2 - 3};
+        
+      }
 
-  .hand {
-    width:50%;
-    height:3px;
-    background:black;
-    position: absolute;
-    top:50%;
-    border-radius: 10%;
-    transform-origin: 100%;
-    transform: rotate(90deg);
-    transition: all 0.5s;
-    transition-timing-function: cubic-bezier(0.1, 2.0, 0.58, 1);
   }
-
+  
+  @for $i from 1 through 4 {
+    section:nth-of-type(#{$i}) {
+      transform: rotateZ(calc(6deg * 45 * #{$i}));
+    }
+  }
+  
+  @keyframes time {
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
 /* ABOUT */
 
 .about-content {

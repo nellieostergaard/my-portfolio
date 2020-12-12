@@ -1,10 +1,14 @@
 <template>
   <div class="clock">
-    <div class="clock-face">
-      <div class="hand hour-hand"></div>
-      <div class="hand min-hand"></div>
-    </div>
-  </div>
+  <div class="clock__second"></div>
+  <div class="clock__minute"></div>
+    <div class="clock__hour"></div>
+  <div class="clock__axis"></div>
+    <section class="clock__indicator"></section>
+    <section class="clock__indicator"></section>
+    <section class="clock__indicator"></section>
+    <section class="clock__indicator"></section>
+</div>
 </template>
 <script>
 export default {
@@ -14,17 +18,26 @@ export default {
     this.setDate();
   },
   methods: {
+    getSecondsToday() {
+      let now = new Date();
+      let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      let diff = now - today;
+      return Math.round(diff / 1000);
+    },
+    setTime(left, hand) {
+      const handElement = document.getElementsByClassName("clock__" + hand)[0];
+      handElement.style.animationDelay = "" + left * -1 + "s";
+    },
     setDate() {
-      const minsHand = document.getElementsByClassName("min-hand")[0];
-      const hourHand = document.getElementsByClassName("hour-hand")[0];
-      const now = new Date();
-      const seconds = now.getSeconds();
-      const mins = now.getMinutes();
-      const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
-      minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-      const hour = now.getHours();
-      const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
-      hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+      var currentSec = this.getSecondsToday();
+
+      var seconds = (currentSec / 60) % 1;
+      var minutes = (currentSec / 3600) % 1;
+      var hours = (currentSec / 43200) % 1;
+
+      this.setTime(60 * seconds, "second");
+      this.setTime(3600 * minutes, "minute");
+      this.setTime(43200 * hours, "hour");
     }
   }
 };
