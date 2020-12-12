@@ -6,7 +6,7 @@ $color-superlightgray : rgba(230, 230, 230, 0.2);
 $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
-$feature : #4b9aaa;
+$feature : #589DF8;
 $clock-size : 200px;
 
 #app {
@@ -16,6 +16,9 @@ $clock-size : 200px;
     text-align: center;
     color: $color-white;
     font-size: 1.2em;
+    a {
+        color: $feature;
+    }
     #page-content {
         padding: 20px;
     }
@@ -49,15 +52,18 @@ $clock-size : 200px;
         text-decoration: none;
         color: $color-white;
         &:hover {
-            color: $color-black;
+            color: $feature;
         }
     }
 }
 
 body {
-    margin: 0;
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(101,204,184,1) 50%, rgba(252,176,69,1) 100%);
+   margin: 0;
+   background: url("../images/cool-background.png") no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
 }
 
 .wavy-text-container {
@@ -153,7 +159,7 @@ a {
     }
     &__indicator {
         height: #{($clock-size / 2) - 2};
-        border-top: 2px solid $feature;
+        border-top: 10px solid $feature;
         background: none;
       }
       &__indicator:nth-of-type(5n) {
