@@ -3,7 +3,6 @@
     <div class="clock-face">
       <div class="hand hour-hand"></div>
       <div class="hand min-hand"></div>
-      <div class="hand second-hand"></div>
     </div>
   </div>
 </template>
@@ -16,13 +15,10 @@ export default {
   },
   methods: {
     setDate() {
-      const secondHand = document.getElementsByClassName("second-hand")[0];
       const minsHand = document.getElementsByClassName("min-hand")[0];
       const hourHand = document.getElementsByClassName("hour-hand")[0];
       const now = new Date();
       const seconds = now.getSeconds();
-      const secondsDegrees = (seconds / 60) * 360 + 90;
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
       const mins = now.getMinutes();
       const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
       minsHand.style.transform = `rotate(${minsDegrees}deg)`;
