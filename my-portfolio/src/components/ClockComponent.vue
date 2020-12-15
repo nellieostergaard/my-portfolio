@@ -26,7 +26,9 @@ export default {
     },
     setTime(left, hand) {
       const handElement = document.getElementsByClassName("clock__" + hand)[0];
-      handElement.style.animationDelay = "" + left * -1 + "s";
+      if (handElement) {
+        handElement.style.animationDelay = "" + left * -1 + "s";
+      }
     },
     setDate() {
       var currentSec = this.getSecondsToday();

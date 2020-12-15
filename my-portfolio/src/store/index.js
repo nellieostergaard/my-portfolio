@@ -40,6 +40,9 @@ export default new Vuex.Store({
         )
         .then(data => {
           this.commit("setWeatherData", data);
+        })
+        .catch(error => {
+          console.log("Error! Issue with fetching weather data: ", error);
         });
     }
   },
