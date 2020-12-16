@@ -42,7 +42,15 @@ export default new Vuex.Store({
         datetime: "2015",
         event: "Something happened in 2015"
       }
-    ]
+    ],
+    skills: [
+      { name: "HTML", precent: 80 },
+      { name: "CSS", precent: 70 },
+      { name: "Vue", precent: 85 },
+      { name: "Javascript", precent: 75 }
+    ],
+    showTimeline: false,
+    aboutToggleText: "Timeline"
   },
   mutations: {
     hamburgerMenuIsClicked(state) {
@@ -53,6 +61,14 @@ export default new Vuex.Store({
       state.weather.name = weatherData.name;
       state.weather.description = weatherData.weather[0].description;
       state.weather.temp = parseInt(weatherData.main.temp);
+    },
+    toggleAbout(state) {
+      state.showTimeline = !state.showTimeline;
+      if (state.showTimeline) {
+        state.aboutToggleText = "Skills";
+      } else {
+        state.aboutToggleText = "Timeline";
+      }
     }
   },
   actions: {

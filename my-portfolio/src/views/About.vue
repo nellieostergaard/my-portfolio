@@ -6,14 +6,13 @@
       <div class="picture-me" />
       <p class="text-me">{{ $store.state.textMe }}</p>
     </div>
-    <span class="toggle-text" @click="skillsIsHidden = !skillsIsHidden">
-      <p>Toggle skills</p>
-    </span>
-    <SkillsComponent v-if="skillsIsHidden" />
-    <span class="toggle-text" @click="timelineIsHidden = !timelineIsHidden">
-      <p>Toggle timeline</p>
-    </span>
-    <TimelineComponent v-if="timelineIsHidden" />
+    <button class="toggle-button" @click="$store.commit('toggleAbout')">
+      Show {{ $store.state.aboutToggleText }}
+    </button>
+    <div class="toggle-content-container">
+      <SkillsComponent v-if="!$store.state.showTimeline" />
+      <TimelineComponent v-if="$store.state.showTimeline" />
+    </div>
   </div>
 </template>
 <script>
@@ -27,8 +26,7 @@ export default {
   },
   data: function() {
     return {
-      timelineIsHidden: false,
-      skillsIsHidden: false
+      timelineIsHidden: false
     };
   }
 };

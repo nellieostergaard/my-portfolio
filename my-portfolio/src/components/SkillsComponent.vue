@@ -1,10 +1,12 @@
 <template>
   <div class="skills">
-    <h2>SKILLS</h2>
-    <div class="shell">
-      <div class="bar">
-        <span>70%</span>
+    <div class="shell" v-for="item in $store.state.skills" :key="item.name">
+      <div class="bar" :style="{ width: item.precent + '%' }">
+        <span>{{ item.name }}</span>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {};
+</script>

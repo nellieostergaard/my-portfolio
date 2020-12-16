@@ -24,14 +24,29 @@ $clock-size : 200px;
     }
 
     footer {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 0);
+       // position: fixed;
+       // bottom: 0;
+      //  left: 50%;
+     //   transform: translate(-50%, 0);
         font-size: 0.9em;
         white-space: nowrap;
         padding: 0.5em 0;
         opacity: 0.8;
+        background-color: rgba(230, 230, 230, 0.2);
+        width: 100%;
+    }
+}
+
+button {
+    padding: 6px;
+    border-radius: 10px;
+    background-color: Transparent;
+    border: 1px solid;
+    color: $color-white;
+    cursor: pointer;
+    
+    &:hover {
+        color: $feature;
     }
 }
 
@@ -193,34 +208,38 @@ a {
   }
 /* ABOUT */
 
-.toggle-text p {
-    cursor: pointer;
-    &:hover {
-        color: $feature;
-    }
+.toggle-content-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
 }
 
+// Skills
+
 .shell {
-    height: 20px;
-    width: 250px;
-    border: 1px solid #aaa;
+    height: 1em;
+    width: 30em;
+    border: 1px solid $color-white;
     border-radius: 13px;
     padding: 3px;
+    margin: 20px;
 }
 
 .bar {
     background: linear-gradient(to right,rgba(255,0,0,0), $feature);
-    height: 20px;
-    width: 15px;
+    height: 1em;
     border-radius: 9px;
-    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     span {
-      float: right;
-      padding: 4px 5px;
-      color: #fff;
-      font-size: 0.7em
+      padding-right: 10px;
+      font-size: 0.9em;
+      font-weight: bold;
     }
 }
+
+/// Timeline
 
 .timeline {
     position: relative;
@@ -298,7 +317,7 @@ content: " ";
     left: -10px;
 }
 
-.content {
+.timeline-content {
     padding: 20px 30px;
     background-color: white;
     position: relative;
