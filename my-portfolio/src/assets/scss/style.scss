@@ -193,6 +193,35 @@ a {
   }
 /* ABOUT */
 
+.toggle-text p {
+    cursor: pointer;
+    &:hover {
+        color: $feature;
+    }
+}
+
+.shell {
+    height: 20px;
+    width: 250px;
+    border: 1px solid #aaa;
+    border-radius: 13px;
+    padding: 3px;
+}
+
+.bar {
+    background: linear-gradient(to right,rgba(255,0,0,0), $feature);
+    height: 20px;
+    width: 15px;
+    border-radius: 9px;
+    width: 70%;
+    span {
+      float: right;
+      padding: 4px 5px;
+      color: #fff;
+      font-size: 0.7em
+    }
+}
+
 .timeline {
     position: relative;
     max-width: 1200px;

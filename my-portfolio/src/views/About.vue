@@ -6,17 +6,30 @@
       <div class="picture-me" />
       <p class="text-me">{{ $store.state.textMe }}</p>
     </div>
-    <div class="timeline">
-      <div
-        v-for="(item, i) in $store.state.timelineData"
-        v-bind:key="i"
-        :class="i % 2 ? 'timeline-item left' : 'timeline-item right'"
-      >
-        <div class="content">
-          <h2>{{ item.datetime }}</h2>
-          <p>{{ item.event }}</p>
-        </div>
-      </div>
-    </div>
+    <span class="toggle-text" @click="skillsIsHidden = !skillsIsHidden">
+      <p>Toggle skills</p>
+    </span>
+    <SkillsComponent v-if="skillsIsHidden" />
+    <span class="toggle-text" @click="timelineIsHidden = !timelineIsHidden">
+      <p>Toggle timeline</p>
+    </span>
+    <TimelineComponent v-if="timelineIsHidden" />
   </div>
 </template>
+<script>
+import TimelineComponent from "../components/TimelineComponent.vue";
+import SkillsComponent from "../components/SkillsComponent.vue";
+
+export default {
+  components: {
+    TimelineComponent,
+    SkillsComponent
+  },
+  data: function() {
+    return {
+      timelineIsHidden: false,
+      skillsIsHidden: false
+    };
+  }
+};
+</script>
