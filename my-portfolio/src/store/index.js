@@ -19,7 +19,30 @@ export default new Vuex.Store({
       name: "",
       temp: "",
       description: ""
-    }
+    },
+    timelineData: [
+      {
+        datetime: "2019 - now",
+        event: "Working for Starweb AB"
+      },
+      {
+        datetime: "2018 - 2019",
+        event:
+          "Worked for IKEA Hubhult. My role at the company was office support"
+      },
+      {
+        datetime: "2017",
+        event: "Something happened in 2017"
+      },
+      {
+        datetime: "2016",
+        event: "Something happened in 2016"
+      },
+      {
+        datetime: "2015",
+        event: "Something happened in 2015"
+      }
+    ]
   },
   mutations: {
     hamburgerMenuIsClicked(state) {
