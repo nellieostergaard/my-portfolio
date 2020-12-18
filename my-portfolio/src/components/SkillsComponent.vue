@@ -1,10 +1,10 @@
 <template>
-  <div class="skills">
-    <div class="shell" v-for="item in $store.state.skills" :key="item.name">
-      <div class="bar" :style="{ width: item.precent + '%' }">
-        <span>{{ item.name }}</span>
-      </div>
-    </div>
+  <div class="skills-container">
+    <ul
+      v-for="(item, i) in $store.state.skills"
+      :key="i"
+      class="skills-list"
+    ></ul>
   </div>
 </template>
 <script>

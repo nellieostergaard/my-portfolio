@@ -3,11 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VueResource from "vue-resource";
+import VueDraggable from "vue-draggable";
 
 Vue.config.productionTip = false;
 
 require("./assets/scss/style.scss");
 Vue.use(VueResource);
+Vue.use(VueDraggable);
 
 new Vue({
   router,

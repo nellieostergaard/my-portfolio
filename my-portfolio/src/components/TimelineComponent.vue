@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline">
+  <div class="timeline-container">
     <div
       v-for="(item, i) in $store.state.timelineData"
       :key="i"

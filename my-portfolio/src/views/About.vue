@@ -5,13 +5,13 @@
     <div class="about-content">
       <div class="picture-me" />
       <p class="text-me">{{ $store.state.textMe }}</p>
-    </div>
-    <button class="toggle-button" @click="$store.commit('toggleAbout')">
-      Show {{ $store.state.aboutToggleText }}
-    </button>
-    <div class="toggle-content-container">
-      <SkillsComponent v-if="!$store.state.showTimeline" />
-      <TimelineComponent v-if="$store.state.showTimeline" />
+      <button class="toggle-button" @click="$store.commit('toggleAbout')">
+        Show {{ $store.state.aboutToggleText }}
+      </button>
+      <div class="toggle-content-container">
+        <SkillsComponent v-if="!$store.state.showTimeline" />
+        <TimelineComponent v-if="$store.state.showTimeline" />
+      </div>
     </div>
   </div>
 </template>
