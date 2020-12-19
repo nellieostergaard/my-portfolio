@@ -1,10 +1,9 @@
 <template>
   <div class="skills-container">
-    <ul
-      v-for="(item, i) in $store.state.skills"
-      :key="i"
-      class="skills-list"
-    ></ul>
+    <img src="../assets/images/css3.svg" />
+    <img src="../assets/images/html-5.svg" />
+    <img src="../assets/images/javascript-4.svg" />
+    <img src="../assets/images/vue-js-1.svg" />
   </div>
 </template>
 <script>

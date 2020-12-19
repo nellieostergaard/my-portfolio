@@ -1,8 +1,8 @@
 <template>
   <div class="project-2">
-    <h2>
+    <h3>
       Drag and Drop - Move one or multiple items between the different columns
-    </h2>
+    </h3>
     <div class="drag-container" v-drag-and-drop:options="options">
       <ul class="drag-list">
         <li class="drag-column" v-for="group in groups" :key="group.id">
@@ -15,7 +15,11 @@
             :data-id="group.id"
             @change="onGroupsChange"
           >
-            <ul class="drag-inner-list" :data-id="group.id">
+            <ul
+              class="drag-inner-list"
+              :data-id="group.id"
+              :class="group.class"
+            >
               <li
                 class="drag-item"
                 v-for="item in group.items"
@@ -39,6 +43,7 @@ export default {
         {
           id: 1,
           name: "To Do",
+          class: "column-1",
           items: [
             { id: 1, name: "Item 1", groupId: 1 },
             { id: 2, name: "Item 2", groupId: 1 },
@@ -48,6 +53,7 @@ export default {
         {
           id: 2,
           name: "In Progress",
+          class: "column-2",
           items: [
             { id: 4, name: "Item 4", groupId: 2 },
             { id: 5, name: "Item 5", groupId: 2 },
@@ -57,6 +63,7 @@ export default {
         {
           id: 3,
           name: "Done",
+          class: "column-3",
           items: [
             { id: 7, name: "Item 7", groupId: 3 },
             { id: 8, name: "Item 8", groupId: 3 },
