@@ -1,6 +1,8 @@
 <template>
   <div class="project-2">
-    <h1>This is a project</h1>
+    <h2>
+      Drag and Drop - Move one or multiple items between the different columns
+    </h2>
     <div class="drag-container" v-drag-and-drop:options="options">
       <ul class="drag-list">
         <li class="drag-column" v-for="group in groups" :key="group.id">

@@ -14,7 +14,7 @@ $clock-size : 200px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: $color-white;
+    color: $color-black;
     font-size: 1.2em;
     a {
         color: $feature;
@@ -71,7 +71,7 @@ button {
     a {
         margin-left: 3em;
         text-decoration: none;
-        color: $color-white;
+        color: $color-black;
         &:hover {
             color: $feature;
         }
@@ -79,13 +79,39 @@ button {
 }
 
 body {
-   margin: 0;
-   background: url("../images/cool-background.png") no-repeat center center fixed; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
+    margin: 0;
 }
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #ADD8E6 50%, #F5FFFA 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
 
 /* HOME */
 
@@ -574,3 +600,45 @@ body {
         }
     } 
 }
+
+
+//// GREEN BACKGROUND 
+  
+  $particleSize: 20vmin;
+  $animationDuration: 6s;
+  $amount: 20;
+  #app .bubbles {
+    width: $particleSize;
+    height: $particleSize;
+    border-radius: $particleSize;
+    backface-visibility: hidden;
+    position: absolute;
+    animation-name: move;
+    animation-duration: $animationDuration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    $colors: (
+      #583C87,
+      #E45A84,
+      #FFACAC
+    );
+    @for $i from 1 through $amount {
+      &:nth-child(#{$i}) {
+        color: nth($colors, random(length($colors)));
+        top: random(100) * 1%;
+        left: random(100) * 1%;
+        animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+        animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+        transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+        $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+        $x: if(random() > 0.5, -1, 1);
+        box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+      }
+    }
+  }
+  
+  @keyframes move {
+    100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+  }
