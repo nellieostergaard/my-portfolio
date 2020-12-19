@@ -31,26 +31,20 @@ export default new Vuex.Store({
           "Worked for IKEA Hubhult. My role at the company was office support"
       },
       {
+        datetime: "2014-2018",
+        event: "I studied Interaction Design 180hp at Malmö University"
+      },
+      {
         datetime: "2017",
-        event: "Something happened in 2017"
+        event: "For one year I took psychology courses at Lunds University"
       },
       {
         datetime: "2016",
-        event: "Something happened in 2016"
-      },
-      {
-        datetime: "2015",
-        event: "Something happened in 2015"
+        event: "In 2016 I was chosen to go on a exchange study program in Rochester, USA."
       }
     ],
-    skills: [
-      { name: "HTML", precent: 80 },
-      { name: "CSS", precent: 70 },
-      { name: "Vue", precent: 85 },
-      { name: "Javascript", precent: 75 }
-    ],
     showTimeline: false,
-    aboutToggleText: "Timeline"
+    aboutToggleText: "Show Timeline"
   },
   mutations: {
     hamburgerMenuIsClicked(state) {
@@ -65,9 +59,9 @@ export default new Vuex.Store({
     toggleAbout(state) {
       state.showTimeline = !state.showTimeline;
       if (state.showTimeline) {
-        state.aboutToggleText = "Skills";
+        state.aboutToggleText = "Show Skills";
       } else {
-        state.aboutToggleText = "Timeline";
+        state.aboutToggleText = "Show Timeline";
       }
     }
   },
