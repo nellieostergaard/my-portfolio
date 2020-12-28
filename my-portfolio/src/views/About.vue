@@ -5,8 +5,8 @@
     <div class="about-content">
       <div class="picture-me" />
       <p class="text-me">{{ $store.state.textMe }}</p>
-      <br/>
-      <ButtonComponent :text="$store.state.aboutToggleText"/>
+      <br />
+      <ButtonComponent :text="$store.state.aboutToggleText" />
       <div class="toggle-content-container">
         <SkillsComponent v-if="!$store.state.showTimeline" />
         <TimelineComponent v-if="$store.state.showTimeline" />
@@ -24,11 +24,6 @@ export default {
     TimelineComponent,
     SkillsComponent,
     ButtonComponent
-  },
-  data: function() {
-    return {
-      timelineIsHidden: false
-    };
   }
 };
 </script>

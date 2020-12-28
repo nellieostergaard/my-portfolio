@@ -6,10 +6,13 @@
       <h2>Welcome to my portfolio</h2>
       <div class="text-container">
         <p>
-          Please feel free to check out some of my projects in the navigation
+          My name is Nellie Östergaard and this is a website entirely made in
+          Vue.js.
+          <br />
+          Please feel free to check out some fun projects in the navigation
           above
           <br />
-          or to know more about me you can click on this link
+          or to know more about me you can click on the link
           <router-link to="/About">about me</router-link>
         </p>
       </div>

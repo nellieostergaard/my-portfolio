@@ -40,7 +40,8 @@ export default new Vuex.Store({
       },
       {
         datetime: "2016",
-        event: "In 2016 I was chosen to go on a exchange study program in Rochester, USA."
+        event:
+          "In 2016 I was chosen to go on a exchange study program in Rochester, USA."
       }
     ],
     showTimeline: false,
