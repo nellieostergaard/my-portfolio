@@ -14,7 +14,7 @@ export default new Vuex.Store({
     ],
     hamburgerIsClicked: false,
     textMe:
-      "Ive been working as a frontend developer for 2 years and use Vue.js as prefered framework. I live in Malmö with my boyfriend Linus and son Hannes.",
+      "I've been working as a frontend developer for two years and use Vue.js as prefered framework. During these two years I have developed a CRM system for my current workplace as the sole frontend designer. I live in Malmö with my boyfriend Linus and son Hannes. ",
     weather: {
       name: "",
       temp: "",
