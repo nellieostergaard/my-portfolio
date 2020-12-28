@@ -12,9 +12,8 @@ export default new Vuex.Store({
       { letter: "l", style: "--i:4;" },
       { letter: "o", style: "--i:5;" }
     ],
-    hamburgerIsClicked: false,
     textMe:
-      "I've been working as a frontend developer for two years and use Vue.js as prefered framework. During these two years I have developed a CRM system for my current workplace as the sole frontend designer. I live in Malmö with my boyfriend Linus and son Hannes. ",
+      "I've been working as a frontend developer for two years and I use Vue.js as prefered framework. During these two years I have been working in-house and developed a CRM system for my current workplace as the main frontend designer. Another project which I worked together with another designer on, was a quick shop and favorite lists view for our e-commerce clients. Besides this I live in Malmö with my boyfriend Linus, who also works with programming, and my son Hannes.",
     weather: {
       name: "",
       temp: "",
@@ -48,9 +47,6 @@ export default new Vuex.Store({
     aboutToggleText: "Show Timeline"
   },
   mutations: {
-    hamburgerMenuIsClicked(state) {
-      state.hamburgerIsClicked = !state.hamburgerIsClicked;
-    },
     setWeatherData(state, data) {
       let weatherData = data.body.list[0];
       state.weather.name = weatherData.name;

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ 'hamburger-open': $store.state.hamburgerIsClicked }">
+  <div id="app">
     <div class="bg" />
     <div class="bg bg2" />
     <div class="bg bg3" />
