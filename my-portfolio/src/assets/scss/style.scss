@@ -7,6 +7,7 @@ $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
 $feature : #FCC986;
+$my-blue : #ADD8E6;
 $clock-size : 200px;
 
 #app {
@@ -57,39 +58,205 @@ $clock-size : 200px;
 
 // NAVBAR
 
-.nav {
-    position: sticky;
-    top: 0;
-    background-color: $color-superlightgray;
-    font-size: 1.3em;
-    padding: 0 500px;
-    ul {
-        list-style-type: none;
-        padding: 0;
+.menu {
+  background-color: $my-blue;
+  text-transform: uppercase;
+  cursor: pointer;
+  a {
+    color: $color-black;
+    text-decoration: none;
+    font-weight: 500;
+    &:focus,
+    &:focus-within {
+      outline: none;
     }
-    li {
-        display: inline-block;
-        margin: 0 10px;
+  }
+  > ol {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    > li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        white-space: nowrap;
-        padding: 10px;
+  }
+}
+
+@media(min-width: 45rem) {
+  .menu {
+    > ol {
+      justify-content: space-around;
+      padding: 0;
+      list-style-type: none;
+      &:hover,
+        > li:first-child {
+          > a {
+              opacity: 0.6;
+          }
+      }
+      > li {
+        flex: 1 1 0;
+        &:last-child:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 100%;
+          bottom: 0;
+          margin-right: -50%;
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 0.5rem;
+          transition: 350ms cubic-bezier(1, 0.49, 0.09, 1.29) all;
+        }
+        @for $i from 1 to 12 {
+          &:first-child:nth-last-child( #{$i} ) ~ li:last-child:after{          
+                right: 50% + 100% * ($i - 1);
+            }
+        }
+        @for $i from 1 to 12 {
+          &:first-child:nth-last-child( #{$i} ),
+          &:first-child:nth-last-child( #{$i} ) ~ li{          
+            @for $j from 1 to $i {
+              &:nth-child( #{$j} ):hover,
+              &:nth-child( #{$j} ):focus,
+              &:nth-child( #{$j} ):focus-within{     
+                ~ li:last-child:after{
+                  right: 50% + 100% * ($i - $j);
+                }
+              } 
+              &:last-child:hover:after,
+              &:last-child:focus:after,
+              &:last-child:focus-within:after{
+                right: 50%;
+              }
+            }
+          }
+        }
+        &:first-child{
+          > a {
+              opacity:1;
+          }
+        }
+        > a {
+          padding: 1rem 0;
+          font-size: 1.2vw;
+          position: relative;
+          width: 100%;
+          text-align: center;
+          z-index: 1;
+          opacity: 0.7;
+          transition: 250ms ease all;
+        }
+        > ol {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          visibility: hidden;
+          padding: 0;
+          list-style-type: none;
+          > li {
+            margin-top: 0.5rem;
+            transition: 250ms cubic-bezier(0.42, 0.83, 0.49, 1.35) transform;
+            transform: scale(0);
+            > a {            
+              display: block;
+              text-align: center;
+              padding: 1rem 0.5rem;
+              font-size: 1.4vw;
+              background: $my-blue;
+              transition: 250ms ease all;
+              
+            }
+          }
+        }
+        &:hover,
+        &:focus,
+        &:focus-within {
+            > a {
+              opacity: 1 !important;
+            }
+            > ol {    
+              visibility: visible;  
+              > li {
+                transform: scale(1);
+                &:first-child{
+                  transition-delay: 150ms;
+                }
+              }
+              @for $k from 1 to 12 {
+                > li:nth-child( #{$k} ){ 
+                  transition-delay: 150ms * $k;
+                }
+              }
+            }
+        }
+      }
     }
+  }
+}
+@media(max-width: 45rem) {
+  .menu {
+    background-color: $my-blue;
     a {
-        margin-left: 3em;
-        text-decoration: none;
-        color: $color-black;
-        cursor: pointer;
-        &:hover {
-            color: $feature;
-        }
-        &.router-link-exact-active {
-            opacity: 0.4;
-            pointer-events: none;
-        }
+      font-size:1.4rem;
+      padding: 1rem 0.5rem;
     }
+    > ol {
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+      > li {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        > a:nth-last-child(2){
+          position:relative;
+          &:after{
+            content:'';
+            position:absolute;
+            top: 50%;
+            margin-top: -0.25rem;
+            right: 1.5rem;
+            border-top: 0.5rem solid #fff;
+            border-left: 0.3rem solid transparent;
+            border-right: 0.3rem solid transparent;
+            transition: 250ms ease all;
+          }
+        }
+        &:focus-within,
+        &:focus,
+        > a:hover,
+        > a:focus-within,
+        > a:focus {
+          &:nth-last-child(2) {
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+          + ol {
+            max-height: 12rem;
+          }
+        }
+        > ol {
+          background: rgba(0,0,0,0.1);
+          overflow: hidden;
+          max-height: 0;
+          transition: 250ms ease all;
+          list-style-type: none;
+          padding: 0;
+          > li {
+            a {
+              display:block;
+              font-size:1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 body {
@@ -97,7 +264,7 @@ body {
 }
 
 .bg {
-    animation:slide 3s ease-in-out infinite alternate;
+    animation: slide 8s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #ADD8E6 50%, #F5FFFA 50%);
     bottom: 0;
     left: -50%;
@@ -109,21 +276,21 @@ body {
   }
   
   .bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
+    animation-direction: alternate-reverse;
+    animation-duration: 6s;
   }
   
   .bg3 {
-    animation-duration:5s;
+    animation-duration: 6s;
   }
   
 
   @keyframes slide {
     0% {
-      transform:translateX(-25%);
+      transform: translateX(-25%);
     }
     100% {
-      transform:translateX(25%);
+      transform: translateX(25%);
     }
   }
 

@@ -1,19 +1,19 @@
 <template>
-  <div class="nav">
-    <HamburgerMenu />
-    <div class="nav-links">
-      <router-link to="/">Home</router-link>
-      <router-link to="/project-1">Project 1</router-link>
-      <router-link to="/project-2">Project 2</router-link>
-      <router-link to="/about">About me</router-link>
-    </div>
-  </div>
+  <nav class="menu">
+    <ol>
+      <li class="menu-item"><router-link to="/">Home</router-link></li>
+      <li class="menu-item">
+        <a>Projects</a>
+        <ol class="sub-menu">
+          <li class="menu-item">
+            <router-link to="/project-1">Dashboard</router-link>
+          </li>
+          <li class="menu-item">
+            <router-link to="/project-2">Drag and Drop</router-link>
+          </li>
+        </ol>
+      </li>
+      <li class="menu-item"><router-link to="/about">About me</router-link></li>
+    </ol>
+  </nav>
 </template>
-<script>
-import HamburgerMenu from "./HamburgerMenu.vue";
-export default {
-  components: {
-    HamburgerMenu
-  }
-};
-</script>
