@@ -57,207 +57,223 @@ $clock-size : 200px;
 }
 
 // NAVBAR
-
-.menu {
-  background-color: $my-blue;
-  text-transform: uppercase;
-  cursor: pointer;
-  a {
-    color: $color-black;
-    text-decoration: none;
-    font-weight: 500;
-    &:focus,
-    &:focus-within {
-      outline: none;
-    }
-  }
-  > ol {
-    display: flex;
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-    > li {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-@media(min-width: 45rem) {
-  .menu {
-    > ol {
-      justify-content: space-around;
-      padding: 0;
-      list-style-type: none;
-      &:hover,
-        > li:first-child {
-          > a {
-              opacity: 0.6;
-          }
-      }
-      > li {
-        flex: 1 1 0;
-        &:last-child:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 100%;
-          bottom: 0;
-          margin-right: -50%;
-          background: rgba(0, 0, 0, 0.1);
-          border-radius: 0.5rem;
-          transition: 350ms cubic-bezier(1, 0.49, 0.09, 1.29) all;
-        }
-        @for $i from 1 to 12 {
-          &:first-child:nth-last-child( #{$i} ) ~ li:last-child:after{          
-                right: 50% + 100% * ($i - 1);
-            }
-        }
-        @for $i from 1 to 12 {
-          &:first-child:nth-last-child( #{$i} ),
-          &:first-child:nth-last-child( #{$i} ) ~ li{          
-            @for $j from 1 to $i {
-              &:nth-child( #{$j} ):hover,
-              &:nth-child( #{$j} ):focus,
-              &:nth-child( #{$j} ):focus-within{     
-                ~ li:last-child:after{
-                  right: 50% + 100% * ($i - $j);
-                }
-              } 
-              &:last-child:hover:after,
-              &:last-child:focus:after,
-              &:last-child:focus-within:after{
-                right: 50%;
-              }
-            }
-          }
-        }
-        &:first-child{
-          > a {
-              opacity:1;
-          }
-        }
-        > a {
-          padding: 1rem 0;
-          font-size: 1.2vw;
-          position: relative;
-          width: 100%;
-          text-align: center;
-          z-index: 1;
-          opacity: 0.7;
-          transition: 250ms ease all;
-        }
-        > ol {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          visibility: hidden;
-          padding: 0;
-          list-style-type: none;
-          > li {
-            margin-top: 0.5rem;
-            transition: 250ms cubic-bezier(0.42, 0.83, 0.49, 1.35) transform;
-            transform: scale(0);
-            > a {            
-              display: block;
-              text-align: center;
-              padding: 1rem 0.5rem;
-              font-size: 1.4vw;
-              background: $my-blue;
-              transition: 250ms ease all;
-              
-            }
-          }
-        }
-        &:hover,
-        &:focus,
-        &:focus-within {
-            > a {
-              opacity: 1 !important;
-            }
-            > ol {    
-              visibility: visible;  
-              > li {
-                transform: scale(1);
-                &:first-child{
-                  transition-delay: 150ms;
-                }
-              }
-              @for $k from 1 to 12 {
-                > li:nth-child( #{$k} ){ 
-                  transition-delay: 150ms * $k;
-                }
-              }
-            }
-        }
-      }
-    }
-  }
-}
-@media(max-width: 45rem) {
-  .menu {
+.menu{
     background-color: $my-blue;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
     a {
-      font-size:1.4rem;
-      padding: 1rem 0.5rem;
+      color: $color-black;
+      text-decoration: none;
+      font-weight: 300;
+      &:focus,
+      &:focus-within {
+        outline: none;
+      }
     }
     > ol {
-      flex-direction: column;
-      list-style-type: none;
+      display: flex;
+      margin: 0;
       padding: 0;
+      list-style-type: none;
       > li {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        > a:nth-last-child(2){
-          position:relative;
-          &:after{
-            content:'';
-            position:absolute;
-            top: 50%;
-            margin-top: -0.25rem;
-            right: 1.5rem;
-            border-top: 0.5rem solid #fff;
-            border-left: 0.3rem solid transparent;
-            border-right: 0.3rem solid transparent;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media(min-width: 45rem) {
+    .menu {
+      > ol {
+        justify-content: space-around;
+        &:hover,
+        &:focus-within {
+          > li:first-child {
+            > a {
+                opacity:0.6;
+            }
+          }
+        }
+        > li {
+          flex: 1 1 0;
+          &:last-child:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            bottom: 0;
+            margin-right: -50%;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            z-index: 0;    
+            transition: 350ms cubic-bezier(1, 0.49, 0.09, 1.29) all;
+            pointer-events: none;
+          }
+          @for $i from 1 to 12 {
+            &:first-child:nth-last-child( #{$i} ) ~ li:last-child:after {          
+                  right: 50% + 100% * ($i - 1);
+              }
+          }
+          @for $i from 1 to 12 {
+            &:first-child:nth-last-child( #{$i} ),
+            &:first-child:nth-last-child( #{$i} ) ~ li {          
+              @for $j from 1 to $i {
+                &:nth-child( #{$j} ):hover,
+                &:nth-child( #{$j} ):focus,
+                &:nth-child( #{$j} ):focus-within {     
+                  ~ li:last-child:after{
+                    right: 50% + 100% * ($i - $j);
+                  }
+                  > ol a {
+                        //box-shadow: inset 0 0 0 3rem rgba(0, 0, 0, 0), inset 0 0 0 3rem rgba(237, 110, 160, (1 - (1/$i)*$j));
+                    &:hover,
+                    &:focus,
+                    &:focus-within {
+                        //box-shadow: inset 0 0 0 3rem rgba(0, 0, 0, 0.1), inset 0 0 0 3rem rgba(237, 110, 160, (1 - (1/$i)*$j));
+                    }
+                  }
+                } 
+                &:last-child:hover:after,
+                &:last-child:focus:after,
+                &:last-child:focus-within:after {
+                  right: 50%;
+                }
+              }
+            }
+          }
+          &:first-child {
+            > a {
+                opacity: 1;
+            }
+          }
+          > a {
+            padding: 0.8rem 0;
+            font-size: 1.1vw;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            opacity: 0.7;
             transition: 250ms ease all;
           }
-        }
-        &:focus-within,
-        &:focus,
-        > a:hover,
-        > a:focus-within,
-        > a:focus {
-          &:nth-last-child(2) {
-            &:after {
-              transform: rotate(180deg);
+          > ol {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            visibility: hidden;
+            padding: 0;
+            > li {
+              margin-top: 0.5rem;
+              transition: 250ms cubic-bezier(0.42, 0.83, 0.49, 1.35) transform;
+              transform: scale(0);
+              list-style: none;
+              > a {            
+                display: block;
+                text-align: center;
+                border-radius: 0.2rem;
+                padding: 1rem 0.5rem;
+                font-size: 0.9vw;
+                background: $my-blue;
+                color: $color-black;
+                transition: 250ms ease all;
+                &:hover,
+                &:focus,
+                &:focus-within {
+                  box-shadow: inset 0 0 0 3rem rgba(0,0,0,0.1);
+                }
+              }
             }
           }
-          + ol {
-            max-height: 12rem;
+          &:hover,
+          &:focus,
+          &:focus-within {
+              > a {
+                opacity: 1 !important;
+              }
+              > ol {    
+                visibility: visible;  
+                > li {
+                  transform: scale(1);
+                  &:first-child{
+                    transition-delay: 150ms;
+                  }
+                }
+                @for $k from 1 to 12 {
+                  > li:nth-child( #{$k} ){ 
+                    transition-delay: 150ms * $k;
+                  }
+                }
+              }
           }
         }
-        > ol {
-          background: rgba(0,0,0,0.1);
-          overflow: hidden;
-          max-height: 0;
-          transition: 250ms ease all;
-          list-style-type: none;
-          padding: 0;
-          > li {
-            a {
-              display:block;
-              font-size:1.2rem;
+      }
+    }
+  }
+  @media(max-width: 45rem) {
+    .menu {
+      a {
+        font-size: 1.4rem;
+        padding: 1rem 0.5rem;
+      }
+      > ol {
+        flex-direction: column;
+        > li {
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+          border-bottom: 1px solid white;
+          > a:nth-last-child(2) {
+            position: relative;
+            &:after {
+              content:'';
+              position:absolute;
+              top: 50%;
+              margin-top: -0.25rem;
+              right: 1.5rem;
+              border-top: 0.5rem solid $color-black;
+              border-left: 0.3rem solid transparent;
+              border-right: 0.3rem solid transparent;
+              transition: 250ms ease all;
+            }
+          }
+          &:focus-within,
+          &:focus,
+          > a:hover,
+          > a:focus-within,
+          > a:focus{
+            &:nth-last-child(2) {
+              &:after{
+                transform: rotate(180deg);
+              }
+            }
+            + ol {
+              max-height: 12rem;
+            }
+          }
+          > ol {
+            background: rgba(0,0,0,0.1);
+            box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-height: 0;
+            padding: 0;
+            transition: 250ms ease all;
+            > li {
+                list-style: none;
+                margin: 0;
+              a {
+                display: block;
+                font-size: 1.2rem;
+              }
             }
           }
         }
       }
     }
   }
-}
 
 body {
     margin: 0;
@@ -503,7 +519,7 @@ body {
     }
 
     .column-2 .drag-item {
-        background: rgb(218, 218, 218);
+        background: rgb(255, 222, 140);
     }
 
     .column-3 .drag-item {
@@ -704,12 +720,6 @@ body {
 
 @media (max-width: $breakpoint-tablet) {
     #app {
-        &.hamburger-open {
-            .page-wrapper {
-                filter: blur(1px);
-                z-index: -1;
-            }
-        }
         .welcome-text-container, .wavy-text-container {
             margin: 0;
             text-align: center;
@@ -718,105 +728,5 @@ body {
         .wavy-text-container {
             font-size: 2em;
         }
-        .nav {
-            justify-content: flex-end;
-            padding: 5px 10px;
-            display: flex;
-            z-index: 2;
-        }
-    
-        .nav-links {
-            display: none;
-        }
-    
-        .hamburger-container {
-            display: inline-block;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .hamburger-container.clicked ~ .nav-links {
-            display: flex;
-            background-color: white;
-            position: absolute;
-            width: 7em;
-            height: fit-content;
-            flex-wrap: wrap;
-            border-radius: 2px;
-            padding-top: 1em;
-            opacity: 0.6;
-            a {
-                z-index: 20000;
-                color: $color-black;
-                &:hover {
-                    color: rgb(131,58,180);
-                }
-            }
-        }
-          
-        .bar1, .bar2, .bar3 {
-            width: 35px;
-            height: 5px;
-            background-color: $color-black;
-            opacity: 0.6;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-    
-        .hamburger-container.clicked .bar1 {
-            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-            transform: rotate(-45deg) translate(-9px, 6px);
-        }
-      
-        .hamburger-container.clicked .bar2 {
-            opacity: 0;
-        }
-      
-        .hamburger-container.clicked .bar3 {
-            -webkit-transform: rotate(45deg) translate(-8px, -8px);
-            transform: rotate(45deg) translate(-8px, -8px);
-        }
-    } 
+    }
 }
-
-
-//// GREEN BACKGROUND 
-  
-  $particleSize: 20vmin;
-  $animationDuration: 6s;
-  $amount: 20;
-  #app .bubbles {
-    width: $particleSize;
-    height: $particleSize;
-    border-radius: $particleSize;
-    backface-visibility: hidden;
-    position: absolute;
-    animation-name: move;
-    animation-duration: $animationDuration;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    $colors: (
-      #583C87,
-      #E45A84,
-      #FFACAC
-    );
-    @for $i from 1 through $amount {
-      &:nth-child(#{$i}) {
-        color: nth($colors, random(length($colors)));
-        top: random(100) * 1%;
-        left: random(100) * 1%;
-        animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
-        animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
-        transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
-        $blurRadius: (random() + 0.5) * $particleSize * 0.5;
-        $x: if(random() > 0.5, -1, 1);
-        box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
-      }
-    }
-  }
-  
-  @keyframes move {
-    100% {
-      transform: translate3d(0, 0, 1px) rotate(360deg);
-    }
-  }
