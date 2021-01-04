@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import '../scss/keyframes.scss';
 
 $color-gray : #545454;
 $color-lightgray : rgba(187, 186, 186, 0.8);
@@ -7,6 +8,7 @@ $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
 $feature : #FCC986;
+$feature-hover : rgb(252, 208, 177);
 $my-blue : #ADD8E6;
 $clock-size : 200px;
 
@@ -50,8 +52,7 @@ $clock-size : 200px;
     transition: all 0.4s ease 0s;
     cursor: pointer;
     &:hover {
-        background: #434343;
-        color: $color-white;
+        background: $feature-hover;
         letter-spacing: 1px;
         -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
         -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -64,11 +65,13 @@ $clock-size : 200px;
 .menu {
     background: $feature;
     height: 4rem;
-  }
-  .menu ol {
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
+    z-index: 1;
+    cursor: pointer;
+    ol {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+    }
   }
   .menu > ol {
     max-width: 1000px;
@@ -80,17 +83,18 @@ $clock-size : 200px;
     padding: 0.75rem 0;
   }
   .menu > ol > .menu-item:after {
-    content: "";
+    content: "\f106";
     position: absolute;
-    width: 4px;
-    height: 4px;
     border-radius: 50%;
-    bottom: 5px;
-    left: calc(50% - 2px);
-    background: #FECEAB;
+    bottom: 2px;
+    left: calc(50% - 5px);
     will-change: transform;
     transform: scale(0);
     transition: transform 0.2s ease;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
   }
   .menu > ol > .menu-item:hover:after {
     transform: scale(1);
@@ -107,6 +111,7 @@ $clock-size : 200px;
     display: block;
     color: $color-black;
   }
+    
   .sub-menu .menu-item {
     padding: 0.75rem 0;
     background: $feature;
@@ -127,15 +132,10 @@ $clock-size : 200px;
     animation-delay: 0.2s;
   }
   .sub-menu .menu-item:hover {
-    background: #FECEAB;
+    background: $feature-hover;
   }
   .sub-menu .menu-item a {
     padding: 0 0.75rem;
-  }
-  @media screen and (max-width: 600px) {
-    .sub-menu .menu-item {
-      background: $feature;
-    }
   }
   
   @media screen and (max-width: 600px) {
@@ -149,8 +149,8 @@ $clock-size : 200px;
       right: 1rem;
       width: 30px;
       height: 4px;
-      background: #FFF;
-      box-shadow: 0 10px #FFF, 0 -10px #FFF;
+      background: $color-black;
+      box-shadow: 0 10px $color-black, 0 -10px $color-black;
     }
     .menu > ol {
       display: none;
@@ -186,7 +186,12 @@ $clock-size : 200px;
     .menu > ol > .menu-item:after {
       left: auto;
       right: 1rem;
-      bottom: calc(50% - 2px);
+      bottom: calc(50% - 6px);
+      content: "\f104";
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
     }
     .menu > ol > .menu-item:hover {
       z-index: 1;
@@ -201,12 +206,14 @@ $clock-size : 200px;
   
   .sub-menu {
     position: absolute;
+    font-size: 0.8em;
     width: 100%;
     top: 100%;
     left: 0;
     display: none;
     z-index: 1;
   }
+
   .menu-item:hover > .sub-menu {
     display: block;
   }
@@ -214,30 +221,13 @@ $clock-size : 200px;
   @media screen and (max-width: 600px) {
     .sub-menu {
       width: 100vw;
+      position: relative;
       left: -2rem;
       top: 50%;
       transform: translateY(-50%);
     }
   }
   
-  @keyframes enter {
-    from {
-      opacity: 0;
-      transform: scaleY(0.98) translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 //// GENERAL
 
 body {
@@ -254,26 +244,16 @@ body {
     right: -50%;
     top: 0;
     z-index: -1;
-  }
+}
   
-  .bg2 {
+.bg2 {
     animation-direction: alternate-reverse;
     animation-duration: 6s;
-  }
+}
   
-  .bg3 {
+.bg3 {
     animation-duration: 6s;
-  }
-  
-
-  @keyframes slide {
-    0% {
-      transform: translateX(-25%);
-    }
-    100% {
-      transform: translateX(25%);
-    }
-  }
+}
 
 /* HOME */
 
@@ -375,9 +355,9 @@ body {
         z-index: 4;
         top: #{$clock-size / 2 - 3};
         
-      }
+    }
 
-  }
+}
   
   @for $i from 1 through 4 {
     section:nth-of-type(#{$i}) {

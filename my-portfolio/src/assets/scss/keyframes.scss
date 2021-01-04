@@ -1,0 +1,28 @@
+@keyframes enter {
+    from {
+      opacity: 0;
+      transform: scaleY(0.98) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide {
+    0% {
+      transform: translateX(-25%);
+    }
+    100% {
+      transform: translateX(25%);
+    }
+}
