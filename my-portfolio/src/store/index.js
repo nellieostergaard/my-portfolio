@@ -44,7 +44,41 @@ export default new Vuex.Store({
       }
     ],
     showTimeline: false,
-    aboutToggleText: "Show Timeline"
+    aboutToggleText: "Show Timeline",
+    highestIdDragItem: 10,
+    dragGroups: [
+      {
+        id: 1,
+        name: "To Do",
+        class: "column-1",
+        items: [
+          { id: 1, name: "Item 1", groupId: 1 },
+          { id: 2, name: "Item 2", groupId: 1 },
+          { id: 3, name: "Item 3", groupId: 1 }
+        ]
+      },
+      {
+        id: 2,
+        name: "In Progress",
+        class: "column-2",
+        items: [
+          { id: 4, name: "Item 4", groupId: 2 },
+          { id: 5, name: "Item 5", groupId: 2 },
+          { id: 6, name: "Item 6", groupId: 2 }
+        ]
+      },
+      {
+        id: 3,
+        name: "Done",
+        class: "column-3",
+        items: [
+          { id: 7, name: "Item 7", groupId: 3 },
+          { id: 8, name: "Item 8", groupId: 3 },
+          { id: 9, name: "Item 9", groupId: 3 },
+          { id: 10, name: "Item 10", groupId: 3 }
+        ]
+      }
+    ]
   },
   mutations: {
     setWeatherData(state, data) {
@@ -60,6 +94,14 @@ export default new Vuex.Store({
       } else {
         state.aboutToggleText = "Show Timeline";
       }
+    },
+    addNewItem(state, name) {
+      state.dragGroups[0].items.push({
+        id: state.highestIdDragItem + 1,
+        name: name,
+        groupId: 1
+      });
+      state.highestIdDragItem++;
     }
   },
   actions: {
