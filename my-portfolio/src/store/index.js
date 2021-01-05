@@ -44,7 +44,7 @@ export default new Vuex.Store({
       }
     ],
     showTimeline: false,
-    aboutToggleText: "Show Timeline",
+    aboutToggleText: "Show me timeline",
     highestIdDragItem: 10,
     dragGroups: [
       {
@@ -90,9 +90,9 @@ export default new Vuex.Store({
     toggleAbout(state) {
       state.showTimeline = !state.showTimeline;
       if (state.showTimeline) {
-        state.aboutToggleText = "Show Skills";
+        state.aboutToggleText = "Show me skills";
       } else {
-        state.aboutToggleText = "Show Timeline";
+        state.aboutToggleText = "Show me timeline";
       }
     },
     addNewItem(state, name) {
