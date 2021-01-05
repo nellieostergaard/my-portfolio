@@ -520,20 +520,26 @@ body {
 /* ABOUT */
 
 .about-content {
+  display: block;
+  .me-content-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     .picture-me {
-        border-radius: 50%;
-        background-color: $color-white;
-        height: 250px;
-        width: 250px;
-        margin: 0 10%;
+      height: 250px;
+      width: 250px;
+      margin: 1% 10%;
     }
     .text-me {
         max-width: 80%;
     }
+  }
+  
+  .toggle-content-container {
+      display: flex;
+      justify-content: center;
+      margin: 25px;
+  }
 
     /// Timeline
 
@@ -648,12 +654,6 @@ body {
             left: 0%;
         }
     }
-}
-
-.toggle-content-container {
-    display: flex;
-    justify-content: center;
-    margin: 25px;
 }
 
 /* Skills */

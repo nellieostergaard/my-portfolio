@@ -3,9 +3,11 @@
     <h1>About me</h1>
     <br />
     <div class="about-content">
-      <div class="picture-me" />
-      <p class="text-me">{{ $store.state.textMe }}</p>
-      <br />
+      <div class="me-content-container">
+        <img class="picture-me" src="../assets/images/me.png" />
+        <p class="text-me">{{ $store.state.textMe }}</p>
+        <br />
+      </div>
       <ButtonComponent :text="$store.state.aboutToggleText" />
       <div class="toggle-content-container">
         <SkillsComponent v-if="!$store.state.showTimeline" />
