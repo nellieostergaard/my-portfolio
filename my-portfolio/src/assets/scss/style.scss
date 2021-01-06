@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 @import '../scss/keyframes.scss';
+
 
 $color-gray : #545454;
 $color-lightgray : rgba(187, 186, 186, 0.8);
@@ -7,13 +8,13 @@ $color-superlightgray : rgba(230, 230, 230, 0.5);
 $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
-$feature : #FCC986;
+$feature : #B54662;
 $feature-hover : rgb(252, 208, 177);
 $my-blue : #ADD8E6;
 $clock-size : 200px;
 
 #app {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Dosis', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -196,11 +197,12 @@ $extra : calc(#{$pad} * 1.2);
     content: "\f106";
     position: absolute;
     border-radius: 50%;
-    bottom: 3px;
+    bottom: 2px;
     left: calc(50% - 5px);
     will-change: transform;
     transform: scale(0);
     transition: transform 0.2s ease;
+    color: $color-white;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
@@ -219,15 +221,16 @@ $extra : calc(#{$pad} * 1.2);
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-    color: $color-black;
+    color: $color-white;
+    font-weight: 700;
   }
     
   .sub-menu .menu-item {
     padding: 0.75rem 0;
-    background: $feature;
     opacity: 0;
     transform-origin: bottom;
     animation: enter 0.2s ease forwards;
+    background-color: rgb(182, 89, 112);
   }
   .sub-menu .menu-item:nth-child(1) {
     animation-duration: 0.2s;
@@ -241,8 +244,22 @@ $extra : calc(#{$pad} * 1.2);
     animation-duration: 0.4s;
     animation-delay: 0.2s;
   }
-  .sub-menu .menu-item:hover {
-    background: $feature-hover;
+  .sub-menu .menu-item:after {
+      content: "\f104";
+      position: absolute;
+      left: auto;
+      right: 1rem;
+      bottom: calc(50% - 6px);
+      transform: scale(0);
+      content: "\f104";
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      color: $color-white;
+  }
+  .sub-menu .menu-item:hover:after {
+    transform: scale(1);
   }
   .sub-menu .menu-item a {
     padding: 0 0.75rem;
@@ -259,8 +276,8 @@ $extra : calc(#{$pad} * 1.2);
       right: 1rem;
       width: 30px;
       height: 2px;
-      background: $color-black;
-      box-shadow: 0 10px $color-black, 0 -10px $color-black;
+      background: $color-white;
+      box-shadow: 0 10px $color-white, 0 -10px $color-white;
     }
     .menu > ol {
       display: none;
@@ -346,7 +363,7 @@ body {
 
 .bg {
     animation: slide 8s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #ADD8E6 50%, #F5FFFA 50%);
+    background-image: linear-gradient(-60deg, #88B1BB 50%, #F9FAF9 50%);
     bottom: 0;
     left: -50%;
     opacity: .5;
