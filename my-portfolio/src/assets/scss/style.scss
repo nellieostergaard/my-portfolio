@@ -175,6 +175,7 @@ $extra : calc(#{$pad} * 1.2);
     height: 3.5rem;
     z-index: 5;
     cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
     ol {
         list-style-type: none;
         margin: 0 auto;
@@ -386,7 +387,7 @@ body {
 
 .wavy-text-container {
     position: relative;
-    -webkit-box-reflect: below -70% linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+    -webkit-box-reflect: below -67% linear-gradient(transparent, rgba(0, 0, 0, 0.2));
     font-size: 4em;
     text-align: left;
     margin-left: 3em;
@@ -419,6 +420,10 @@ body {
     text-align: right;
     margin-right: 8em;
     font-size: 1.2em;
+    a {
+      color: $feature;
+      font-weight: 700;
+    }
 }
 
 
@@ -505,6 +510,18 @@ body {
     $in-progress: #2a92bf;
     $approved: #00b961;
 
+    .form__input {
+      color: #333;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      border-radius: 0.2rem;
+      background-color: rgb(255, 255, 255);
+      border: none;
+      width: 30%;
+      display: block;
+      transition: all 0.3s;
+    }
+
     h3 {
         font-weight: 300;
     }
@@ -549,6 +566,7 @@ body {
         margin: 0;
         text-transform: uppercase;
         font-weight: 600;
+        color: $feature;
       }
     
       &-to-do {
@@ -596,6 +614,9 @@ body {
 
     .column-3 .drag-item {
         background: rgb(144, 212, 144);
+        .drag-item-text {
+          text-decoration: line-through;
+        }
     }
     
     .drag-item {
@@ -605,16 +626,18 @@ body {
       transition: $ease-out;
       cursor: pointer;
       border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     
       &[aria-grabbed="true"] {
-        background: rgba(159, 240, 159, 0.447);
+        background: $color-white;
+        opacity: 0.4;
         color: black;
     }
     
       .drag-item-text {
-        font-size: 1rem;
-        padding-left: 1rem;
-        padding-top: 1rem;
+        font-size: 1.1rem;
       }
     }
     
@@ -654,8 +677,14 @@ body {
       width: 250px;
       margin: 1% 10%;
     }
-    .text-me {
-        max-width: 80%;
+    .text-me, .text-skills {
+        max-width: 70%;
+        font-size: 1.1em;
+        line-height: 1.6em;
+        a {
+          color: $feature;
+          font-weight: 600;
+        }
     }
   }
   
@@ -698,7 +727,7 @@ body {
         width: 15px;
         height: 15px;
         right: -9px;
-        background-color: #ADD8E6;
+        background-color: $feature;
         border: 2px solid #fff;
         top: 22px;
         border-radius: 50%;
@@ -706,7 +735,7 @@ body {
     }
 
     .left {
-        left: -10.3%;
+        left: -12%;
     }
 
     .right {
@@ -783,10 +812,23 @@ body {
 /* Skills */
 
 .skills-container {
-    img {
-        height: 10em;
-        width: 10em;
-    }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.skills-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $feature;
+  color: $color-white;
+  position: relative;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 0 1rem;
 }
 
 /* Media Query */

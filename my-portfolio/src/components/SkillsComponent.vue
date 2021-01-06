@@ -1,9 +1,14 @@
 <template>
   <div class="skills-container">
-    <img src="../assets/images/css3.svg" />
-    <img src="../assets/images/html-5.svg" />
-    <img src="../assets/images/javascript-4.svg" />
-    <img src="../assets/images/vue-js-1.svg" />
+    <div
+      v-for="(item, i) in $store.state.skillsData"
+      :key="i"
+      class="skills-content"
+    >
+      <div class="skills-text">
+        <h3>{{ item.name }}</h3>
+      </div>
+    </div>
   </div>
 </template>
 <script>

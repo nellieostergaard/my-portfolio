@@ -9,11 +9,11 @@
           My name is Nellie Östergaard and this is a website I have created
           entirely in Vue.js.
           <br />
-          Please feel free to check out some fun projects in the navigation
-          above
+          Please feel free to check out some small but fun projects in the
+          navigation above
           <br />
           or to know more about me you can click on
-          <router-link to="/About">about me</router-link>
+          <router-link to="/About">about me.</router-link>
         </p>
       </div>
     </div>

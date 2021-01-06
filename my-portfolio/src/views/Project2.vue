@@ -3,18 +3,16 @@
     <h3>
       Drag and Drop - Move one or multiple items between the different columns
     </h3>
-    <label for="name">Add new item (2 to 8 characters): </label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      required
-      minlength="2"
-      maxlength="8"
-      size="10"
-      v-model="newItemName"
-      @change="$store.commit('addNewItem', newItemName)"
-    />
+    <div class="form__group">
+      <input
+        type="text"
+        class="form__input"
+        id="name"
+        :placeholder="formPlaceholder"
+        v-model="newItemName"
+        @change="addNewItem(newItemName)"
+      />
+    </div>
     <div class="drag-container" v-drag-and-drop:options="options">
       <ul class="drag-list">
         <li
@@ -55,11 +53,18 @@ export default {
   data() {
     return {
       newItemName: "",
+      formPlaceholder: "Add new todo",
       options: {
         dropzoneSelector: ".drag-inner-list",
         draggableSelector: ".drag-item"
       }
     };
+  },
+  methods: {
+    addNewItem(name) {
+      this.$store.commit("addNewItem", name);
+      this.newItemName = "";
+    }
   }
 };
 </script>

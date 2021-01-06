@@ -13,7 +13,9 @@ export default new Vuex.Store({
       { letter: "o", style: "--i:5;" }
     ],
     textMe:
-      "I've been working as a frontend developer for two years and I use Vue.js as prefered framework. During these two years I have been working in-house and developed a CRM system for my current workplace as the main frontend designer. Another project which I worked together with another designer on, was a quick shop and favorite lists view for our e-commerce clients. Besides this I live in Malmö with my boyfriend Linus, who also works with programming, and my son Hannes.",
+      "I've been working as a frontend developer for two years and I use Vue.js as prefered framework. During these two years I have been working in-house and developed a <a>CRM system</a> for my current workplace as the main frontend designer. Another project which I worked together with another designer on, was a <a>quick shop</a> and <a>favorite lists</a> view for our e-commerce clients. Besides this I live in Malmö with my boyfriend Linus, who also works with programming, and my son Hannes.",
+    textSkills:
+      "In my team we have been working in <a>SCRUM</a>, so I have a good understanding in working using this method.     I also have good experience in <a>code reviews</a>, trying to keep a good coding standard for the whole team and system. One task I was given at my company was to create a template for Vue coding which is now in use.",
     weather: {
       name: "",
       temp: "",
@@ -45,6 +47,23 @@ export default new Vuex.Store({
     ],
     showTimeline: false,
     aboutToggleText: "Show me timeline",
+    skillsData: [
+      {
+        name: "CSS"
+      },
+      {
+        name: "HTML"
+      },
+      {
+        name: "Javascript"
+      },
+      {
+        name: "Vue"
+      },
+      {
+        name: "UX"
+      }
+    ],
     highestIdDragItem: 10,
     dragGroups: [
       {
@@ -52,9 +71,10 @@ export default new Vuex.Store({
         name: "To Do",
         class: "column-1",
         items: [
-          { id: 1, name: "Item 1", groupId: 1 },
-          { id: 2, name: "Item 2", groupId: 1 },
-          { id: 3, name: "Item 3", groupId: 1 }
+          { id: 1, name: "Do laundry", groupId: 1 },
+          { id: 2, name: "Work out", groupId: 1 },
+          { id: 3, name: "Shower", groupId: 1 },
+          { id: 4, name: "Make dinner", groupId: 1 }
         ]
       },
       {
@@ -62,9 +82,8 @@ export default new Vuex.Store({
         name: "In Progress",
         class: "column-2",
         items: [
-          { id: 4, name: "Item 4", groupId: 2 },
-          { id: 5, name: "Item 5", groupId: 2 },
-          { id: 6, name: "Item 6", groupId: 2 }
+          { id: 5, name: "Pick up delivery", groupId: 2 },
+          { id: 6, name: "Tidy up", groupId: 2 }
         ]
       },
       {
@@ -72,10 +91,9 @@ export default new Vuex.Store({
         name: "Done",
         class: "column-3",
         items: [
-          { id: 7, name: "Item 7", groupId: 3 },
-          { id: 8, name: "Item 8", groupId: 3 },
-          { id: 9, name: "Item 9", groupId: 3 },
-          { id: 10, name: "Item 10", groupId: 3 }
+          { id: 7, name: "Make breakfast", groupId: 3 },
+          { id: 8, name: "Eat breakfast", groupId: 3 },
+          { id: 9, name: "Go to work", groupId: 3 }
         ]
       }
     ]
