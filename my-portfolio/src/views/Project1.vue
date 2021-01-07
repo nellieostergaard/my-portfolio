@@ -1,17 +1,22 @@
 <template>
   <div class="project-1">
-    <clock-component />
-    <weather-component />
+    <div class="time-container flex">
+      <clock-component />
+      <time-component />
+    </div>
+    <drag-component />
   </div>
 </template>
 <script>
 import ClockComponent from "../components/ClockComponent.vue";
-import WeatherComponent from "../components/WeatherComponent.vue";
+import DragDrop from "../components/DragDrop.vue";
+import TimeComponent from "../components/TimeComponent.vue";
 
 export default {
   components: {
     "clock-component": ClockComponent,
-    "weather-component": WeatherComponent
+    "drag-component": DragDrop,
+    "time-component": TimeComponent
   }
 };
 </script>

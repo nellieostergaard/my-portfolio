@@ -9,7 +9,7 @@ $color-white : rgb(255,255,255);
 $color-black : rgb(0,0,0);
 $breakpoint-tablet: 768px;
 $feature : #B54662;
-$feature-hover : rgb(252, 208, 177);
+$feature-hover : rgb(182, 95, 117);
 $my-blue : #ADD8E6;
 $clock-size : 200px;
 
@@ -429,23 +429,37 @@ body {
 
 /* PROJECT-1 */
 
+.flex {
+  display: flex;
+}
+
 .project-1 {
-    display: flex;
+  .time-container {
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1em;
+  }
+  .time-text {
+    position: relative;
+    font-size: 2em;
+    margin-left: 2em;
+  }
     
-.clock {
+  .clock {
     height: $clock-size;
     width: $clock-size;
     border-radius: #{$clock-size / 2};
     display: flex;
     justify-content: center;
     position: relative;
+    background-color: rgba(232, 232, 232, 0.4);
     &__second,
     &__minute,
     &__hour, &__indicator {
       position: absolute;
       left: calc(50% - 1px);
       width: 2px;
-      background: $color-white;
+      background: $feature-hover;
       transform-origin: bottom center;
       z-index: 2;
       border-radius: 1px;
@@ -469,14 +483,9 @@ body {
       animation: time 43200s linear infinite;
     }
     &__indicator {
-        height: #{($clock-size / 2) - 2};
+        height: #{($clock-size / 2) - 10};
         border-top: 10px solid $feature;
         background: none;
-      }
-      &__indicator:nth-of-type(5n) {
-        opacity: 1;
-        height: #{($clock-size / 2) - 7};
-        border-top: 7px solid $color-white;
       }
       &__axis {
         background: $feature;
@@ -497,20 +506,15 @@ body {
     }
   }
   
-  @keyframes time {
-    to {
-      transform: rotateZ(360deg);
-    }
-  }
 }
 
-.project-2 {
+.drag-drop-container {
     $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     $to-do: #f4ce46;
     $in-progress: #2a92bf;
     $approved: #00b961;
 
-    .form__input {
+    .input {
       color: #333;
       margin: 0 auto;
       padding: 0.5rem 1rem;
@@ -554,15 +558,16 @@ body {
       flex: 1;
       margin: 0 10px;
       position: relative;
-      background: rgba(grey, 0.2);
+      background: rgba(232, 232, 232, 0.4);
       overflow: hidden;
+      border-radius: 8px;
     
       @media (max-width: 690px) {
         margin-bottom: 30px;
       }
     
       h2 {
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin: 0;
         text-transform: uppercase;
         font-weight: 600;
@@ -597,6 +602,10 @@ body {
       justify-content: space-between;
       padding: 10px;
       user-select: none;
+      background: $color-white;
+      border-top: 1px solid rgba(232, 232, 232, 0.8);
+      border-left: 1px solid rgba(232, 232, 232, 0.8);
+      border-right: 1px solid rgba(232, 232, 232, 0.8);
     }
     
     .drag-inner-list {
@@ -624,7 +633,7 @@ body {
       height: 100px;
       background: #F5FFFA;
       transition: $ease-out;
-      cursor: pointer;
+      cursor: grab;
       border-radius: 8px;
       display: flex;
       justify-content: center;
@@ -638,6 +647,11 @@ body {
     
       .drag-item-text {
         font-size: 1.1rem;
+        cursor: text;
+      }
+      .input {
+        width: 60%;
+        border: 1px solid $color-lightgray;
       }
     }
     

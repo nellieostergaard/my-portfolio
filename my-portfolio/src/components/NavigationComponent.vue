@@ -10,7 +10,7 @@
             <router-link to="/project-1">Dashboard</router-link>
           </li>
           <li class="menu-item">
-            <router-link to="/project-2">Drag and Drop</router-link>
+            <router-link to="/project-2">TBA</router-link>
           </li>
         </ol>
       </li>
