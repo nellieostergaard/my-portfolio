@@ -5,10 +5,8 @@
     <div class="about-content">
       <div class="me-content-container">
         <img class="picture-me" src="../assets/images/me.png" />
-        <p class="text-me" v-html="$store.state.textMe" />
-        <br />
-        <p class="text-skills" v-html="$store.state.textSkills" />
-        >
+        <p v-html="$store.state.textMe" />
+        <p v-html="$store.state.textSkills" />
       </div>
       <ButtonComponent :text="$store.state.aboutToggleText" />
       <div class="toggle-content-container">

@@ -664,17 +664,23 @@ body {
   .me-content-container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    margin: 2em;
     .picture-me {
       height: 250px;
       width: 250px;
+      margin-right: 4em;
     }
-    .text-me, .text-skills {
+    p {
         max-width: 70%;
         font-size: 1.1em;
         line-height: 1.6em;
         a {
           color: $feature;
           font-weight: 600;
+        }
+        &:first-of-type {
+            margin-right: 1em;
         }
     }
   }
