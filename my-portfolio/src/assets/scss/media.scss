@@ -83,8 +83,22 @@
           top: 50%;
           transform: translateY(-50%);
         }
-
+        .clock {
+          display: none;
+        }
     .about-content {
+      p {
+        max-width: 100%;
+      }
+      .me-content-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0;
+        img {
+          margin: 0;
+        }
+      }
         .timeline-container::after {
             left: 31px;
         }

@@ -1,12 +1,9 @@
 <template>
   <div class="about">
-    <h1>About me</h1>
-    <br />
     <div class="about-content">
       <div class="me-content-container">
         <img class="picture-me" src="../assets/images/me.png" />
         <p v-html="$store.state.textMe" />
-        <p v-html="$store.state.textSkills" />
       </div>
       <ButtonComponent :text="$store.state.aboutToggleText" />
       <div class="toggle-content-container">

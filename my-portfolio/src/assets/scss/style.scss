@@ -661,15 +661,17 @@ body {
 
 .about-content {
   display: block;
+  position: relative;
+  top: 1.5em;
   .me-content-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: row;
-    margin: 2em;
+    margin: 0 2em;
     .picture-me {
       height: 250px;
       width: 250px;
-      margin-right: 4em;
+      margin-right: 3em;
     }
     p {
         max-width: 70%;
@@ -679,16 +681,17 @@ body {
           color: $feature;
           font-weight: 600;
         }
-        &:first-of-type {
-            margin-right: 1em;
-        }
     }
   }
   
   .toggle-content-container {
       display: flex;
       justify-content: center;
-      margin: 25px;
+      margin: 3em 1em;
+      a {
+        color: $feature;
+        font-weight: 600;
+      }
   }
 
     /// Timeline
@@ -784,6 +787,11 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   cursor: pointer;
+  p {
+  max-width: 80%;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  }
 }
 
 .skills-content {
@@ -796,6 +804,6 @@ body {
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  margin: 0 1rem;
+  margin: 1rem;
 }
 
