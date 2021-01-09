@@ -8,7 +8,7 @@
       v-else
       type="text"
       v-model="newName"
-      @change="changeName(item)"
+      @keyup.enter="addNewItem(newItemName)"
     />
   </span>
 </template>

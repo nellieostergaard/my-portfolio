@@ -47,7 +47,7 @@ export default new Vuex.Store({
       }
     ],
     showTimeline: false,
-    aboutToggleText: "Show me timeline",
+    aboutToggleText: "Show timeline",
     skillsData: [
       {
         name: "CSS"
@@ -112,9 +112,9 @@ export default new Vuex.Store({
     toggleAbout(state) {
       state.showTimeline = !state.showTimeline;
       if (state.showTimeline) {
-        state.aboutToggleText = "Show me skills";
+        state.aboutToggleText = "Show skills";
       } else {
-        state.aboutToggleText = "Show me timeline";
+        state.aboutToggleText = "Show timeline";
       }
     },
     addNewItem(state, name) {

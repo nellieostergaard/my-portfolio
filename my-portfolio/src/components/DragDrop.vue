@@ -5,10 +5,10 @@
       <input
         type="text"
         class="input"
+        @keyup.enter="addNewItem(newItemName)"
         id="name"
         :placeholder="formPlaceholder"
         v-model="newItemName"
-        @change="addNewItem(newItemName)"
       />
     </div>
     <div class="drag-container" v-drag-and-drop:options="options">

@@ -100,6 +100,7 @@
         .clock {
           display: none;
         }
+
     .about-content {
       p {
         max-width: 100%;
@@ -113,14 +114,16 @@
           margin: 0;
         }
       }
+      .toggle-content-container {
+        margin: 3em 1em;
         .timeline-container::after {
-            left: 31px;
+          left: 31px;
         }
 
         .timeline-item {
-            width: 100%;
-            padding-left: 70px;
-            padding-right: 25px;
+          width: 75%;
+          padding-left: 70px;
+          padding-right: 25px;
         }
 
         .timeline-item::before {
@@ -138,22 +141,33 @@
         .right, .left {
             left: 0%;
         }
-    }
-    .drag-drop-container {
-      .input {
-        width: 50%;
       }
-        .drag-list {
         
-            @media (max-width: 690px) {
-            display: block;
-            }
+    }
+    .project-1 {
+      .time-container {
+        justify-content: center;
+        .time-text {
+          margin: 0;
         }
-        .drag-column {
-            @media (max-width: 690px) {
-              margin-bottom: 30px;
-            }
+      }
+      .drag-drop-container {
+        .input {
+          width: 50%;
         }
-    }    
+          .drag-list {
+          
+              @media (max-width: 690px) {
+              display: block;
+              }
+          }
+          .drag-column {
+              @media (max-width: 690px) {
+                margin-bottom: 30px;
+              }
+          }
+      } 
+    }
+   
 }
 }
