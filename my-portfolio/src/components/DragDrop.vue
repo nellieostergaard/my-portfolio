@@ -62,6 +62,9 @@ export default {
       }
     };
   },
+  mounted() {
+    this.$store.dispatch("getWeatherData");
+  },
   methods: {
     addNewItem(name) {
       this.$store.commit("addNewItem", name);

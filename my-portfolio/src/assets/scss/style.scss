@@ -13,6 +13,7 @@
     font-size: 1.2em;
     .page-wrapper {
         padding: 20px;
+        z-index: 1;
     }
 
     a {
@@ -164,9 +165,13 @@ $extra : calc(#{$pad} * 1.2);
 .menu {
     background: $feature;
     height: 3.5rem;
-    z-index: 5;
+    z-index: 1;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+
+    .menu-hamburger { 
+      display: none;
+    }
     ol {
         list-style-type: none;
         margin: 0 auto;
@@ -271,9 +276,6 @@ $extra : calc(#{$pad} * 1.2);
     display: block;
   }
         
- 
-  
- 
   
 //// GENERAL
 

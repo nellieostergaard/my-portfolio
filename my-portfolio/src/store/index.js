@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    showDropDownMenu: false,
     bigHello: [
       { letter: "H", style: "--i:1;" },
       { letter: "e", style: "--i:2;" },
@@ -13,7 +14,7 @@ export default new Vuex.Store({
       { letter: "o", style: "--i:5;" }
     ],
     textMe:
-      "I've been working as a frontend developer for a e-commerce company for two years now and I use <a>Vue.js</a> as prefered framework. My previous studies consists of ... I live in Malmö with my boyfriend Linus, who also works with programming, and my son Hannes.",
+      "I've been working as a frontend developer for a e-commerce company for two years now and I use <a>Vue.js</a> as prefered framework. My previous studies consists of a 3 year long Interaction design programme at Malmö University and 1 year of psychology courses in Lund. Besides this, I live in Malmö with my son Hannes and my boyfriend Linus, who also works in programming.",
     textSkills:
       "During these two years I have been working in-house and among other things developed a <a>CRM system</a> for my collegues in the sales- and design department. Another project which I worked together with another designer on, was a <a>quick shop</a> and <a>favorite lists</a> view for our e-commerce clients. <br /> In my team we have been working in <a>SCRUM</a>, so I have a good understanding in using this method on a day-to-day basis. I also have good experience in <a>code reviews</a>, trying to keep a good coding standard for the whole team and system. Lastly, one of my more recent tasks at my company was to create a frontend <a>guideline</a> for Vue coding which is now in use.",
     weather: {
@@ -99,6 +100,9 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    toggleMobileMenu(state) {
+      state.showDropDownMenu = !state.showDropDownMenu;
+    },
     setWeatherData(state, data) {
       let weatherData = data.body.list[0];
       state.weather.name = weatherData.name;

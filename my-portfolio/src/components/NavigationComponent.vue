@@ -1,5 +1,9 @@
 <template>
-  <nav class="menu">
+  <nav
+    class="menu"
+    :class="{ 'dropdown-active': $store.state.showDropDownMenu }"
+  >
+    <div class="menu-hamburger" @click="$store.commit('toggleMobileMenu')" />
     <ol>
       <li class="menu-item"><router-link to="/">Home</router-link></li>
       <li class="menu-item"><router-link to="/about">About me</router-link></li>
@@ -14,7 +18,6 @@
           </li>
         </ol>
       </li>
-      <li class="menu-item"><a href="#0">Contact</a></li>
     </ol>
   </nav>
 </template>

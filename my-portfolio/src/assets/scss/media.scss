@@ -4,6 +4,9 @@
 
 @media screen and (max-width: 600px) {
     #app {
+        .page-wrapper {
+          z-index: 2;
+        }
         .welcome-text-container, .wavy-text-container {
             margin: 0;
             text-align: center;
@@ -14,23 +17,48 @@
         }
         .menu {
           position: relative;
+          &.dropdown-active  {
+            ol {
+              display: flex;
+            }
+            .sub-menu {
+              display: none;
+              width: 100vw;
+              position: relative;
+              left: -2rem;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            .menu-item:hover > .sub-menu {
+                display: block;
+            }
+          }
+          .menu-hamburger { 
+            display: block;
+            position: absolute;
+            right: 0em;
+            width: 45px;
+            height: 40px;
+            padding: 8px;
+            &:after {
+              box-shadow: none;
+              content: "";
+              position: absolute;
+              top: calc(50% - 2px);
+              right: 1rem;
+              width: 30px;
+              height: 2px;
+              background: $color-white;
+              box-shadow: 0 10px $color-white, 0 -10px $color-white;
+          }
         }
-        .menu:after {
-          content: "";
-          position: absolute;
-          top: calc(50% - 2px);
-          right: 1rem;
-          width: 30px;
-          height: 2px;
-          background: $color-white;
-          box-shadow: 0 10px $color-white, 0 -10px $color-white;
         }
         .menu > ol {
           display: none;
           background: $feature;
           flex-direction: column;
           justify-content: center;
-          height: 100vh;
+          height: 60vh;
           animation: fade 0.2s ease-out;
         }
         .menu > ol > .menu-item {
@@ -68,20 +96,6 @@
         }
         .menu > ol > .menu-item:hover {
           z-index: 1;
-        }
-        .menu:hover > ol {
-          display: flex;
-        }
-        .menu:hover:after {
-          box-shadow: none;
-        }
-      
-        .sub-menu {
-          width: 100vw;
-          position: relative;
-          left: -2rem;
-          top: 50%;
-          transform: translateY(-50%);
         }
         .clock {
           display: none;
@@ -126,6 +140,9 @@
         }
     }
     .drag-drop-container {
+      .input {
+        width: 50%;
+      }
         .drag-list {
         
             @media (max-width: 690px) {
