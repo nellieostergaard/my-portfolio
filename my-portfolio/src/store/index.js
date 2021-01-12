@@ -25,25 +25,30 @@ export default new Vuex.Store({
     timelineData: [
       {
         datetime: "2019 - now",
-        event: "Working for Starweb AB"
+        company: "Starweb AB",
+        event: "In-house frontend developer"
       },
       {
         datetime: "2018 - 2019",
+        company: "IKEA",
         event:
-          "Worked for IKEA Hubhult. My role at the company was office support"
+          "Office support for the IKEA office in Hubhult"
       },
       {
         datetime: "2014-2018",
-        event: "I studied Interaction Design 180hp at Malmö University"
+        company: "Malmö University",
+        event: "Interaction Design 180hp at Malmö University"
       },
       {
         datetime: "2017",
-        event: "For one year I took psychology courses at Lunds University"
+        company: "Lund University",
+        event: "Psychology courses"
       },
       {
         datetime: "2016",
+        company: "Rochester Institute of Technology",
         event:
-          "In 2016 I was chosen to go on a exchange study program in Rochester, USA."
+          "Exchange study program in Rochester, USA."
       }
     ],
     showTimeline: false,

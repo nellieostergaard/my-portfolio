@@ -37,7 +37,7 @@
                 :key="item.id"
                 :data-id="item.id"
               >
-                <DragItem :item="item" />
+                <DragItemText :item="item" />
               </li>
             </ul>
           </vue-draggable-group>
@@ -47,10 +47,10 @@
   </div>
 </template>
 <script>
-import DragItem from "./DragItem.vue";
+import DragItemText from "./DragItemText.vue";
 export default {
   components: {
-    DragItem
+    DragItemText
   },
   data() {
     return {

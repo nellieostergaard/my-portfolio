@@ -7,7 +7,7 @@ import VueDraggable from "vue-draggable";
 
 Vue.config.productionTip = false;
 
-require("./assets/scss/style.scss");
+require("./assets/sass/style.sass");
 Vue.use(VueResource);
 Vue.use(VueDraggable);
 

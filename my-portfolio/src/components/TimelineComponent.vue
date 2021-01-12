@@ -1,14 +1,9 @@
 <template>
   <div class="timeline-container">
-    <div
-      v-for="(item, i) in $store.state.timelineData"
-      :key="i"
-      :class="i % 2 ? 'timeline-item left' : 'timeline-item right'"
-    >
-      <div class="timeline-content">
-        <h2>{{ item.datetime }}</h2>
-        <p>{{ item.event }}</p>
-      </div>
-    </div>
+    <span v-for="(item, i) in $store.state.timelineData" :key="i" class="flex">
+      <time>{{ item.datetime }}</time>
+      <p>{{ item.company }}</p>
+      <p>{{ item.event }}</p>
+    </span>
   </div>
 </template>

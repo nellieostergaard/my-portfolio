@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="drag-item-text-container">
     <p class="drag-item-text" v-if="!showInput" @click="showInput = true">
       {{ item.name }}
     </p>
@@ -8,7 +8,7 @@
       v-else
       type="text"
       v-model="newName"
-      @keyup.enter="addNewItem(newItemName)"
+      @keyup.enter="changeName()"
     />
   </span>
 </template>
@@ -26,10 +26,11 @@ export default {
     };
   },
   methods: {
-    changeName(item) {
-      item.name = this.newName;
+    changeName() {
+      if (this.newName !== "") {
+        this.item.name = this.newName;
+      }
       this.showInput = false;
-      this.newName = "";
     }
   }
 };

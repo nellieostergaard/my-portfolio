@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap')
+@import '../sass/keyframes.sass'
+@import '../sass/colors.sass'
+@import '../sass/media.sass'
+
+html
+  font-size: 22px
+
+#app
+  font-family: 'Dosis', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: $color-black
+
+  .page-wrapper
+    padding: 20px
+    z-index: 1
+
+  a
+    text-decoration: none
+
+  footer
+    bottom: 0
+    position: fixed
+    font-size: 0.8em
+    white-space: nowrap
+    padding: 0.5em 0
+    opacity: 0.8
+    background-color: rgba(230, 230, 230, 0.2)
+    width: 100%
+
+// BUTTON
+$thick: 3px
+$pad: 0.7em
+$extra: calc(#{$pad} * 1.2)
+
+.btn-container
+  a
+    color: $color-black
+    padding: $pad $extra
+    display: inline-block
+    border: $thick solid transparent
+    position: relative
+    font-size: 1.1em
+    cursor: pointer
+    letter-spacing: 0.07em
+
+    .text
+      transform: translate3d(0, $pad, 0)
+      display: block
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s
+
+    &:after
+      position: absolute
+      content: ''
+      bottom: -$thick
+      left: $extra
+      right: $extra
+      height: $thick
+      background: $feature
+      transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s
+      transform-origin: left
+
+  .line
+    position: absolute
+    background: $feature
+
+    &.-right,
+    &.-left
+      width: $thick
+      bottom: -$thick
+      top: -$thick
+      transform: scale3d(1, 0, 1)
+
+    &.-top,
+    &.-bottom
+      height: $thick
+      left: -$thick
+      right: -$thick
+      transform: scale3d(0, 1, 1)
+
+    &.-right
+      right: -$thick
+      transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s
+      transform-origin: top
+
+    &.-top
+      top: -$thick
+      transition: transform 0.08s linear 0.43s
+      transform-origin: left
+
+    &.-left
+      left: -$thick
+      transition: transform 0.08s linear 0.51s
+      transform-origin: bottom
+
+    &.-bottom
+      bottom: -$thick
+      transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01)
+      transform-origin: right
+
+  a:hover,
+  a:active
+    .text
+      transform: translate3d(0, 0, 0)
+      transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s
+
+    &:after
+      transform: scale3d(0, 1, 1)
+      right: -$thick
+      left: -$thick
+      transform-origin: right
+      transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s
+
+    .line
+      transform: scale3d(1, 1, 1)
+
+      &.-right
+        transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s
+        transform-origin: bottom
+
+      &.-top
+        transition: transform 0.08s linear 0.4s
+        transform-origin: right
+
+      &.-left
+        transition: transform 0.08s linear 0.48s
+        transform-origin: top
+
+      &.-bottom
+        transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s
+        transform-origin: left
+
+// NAVBAR
+.menu
+  background: $feature
+  height: 2.5rem
+  z-index: 1
+  cursor: pointer
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
+
+  .menu-hamburger
+    display: none
+
+  ol
+    list-style-type: none
+    margin: 0 auto
+    padding: 0
+
+.menu > ol
+  max-width: 1000px
+  padding: 0 2rem
+  display: flex
+
+.menu > ol > .menu-item
+  flex: 1
+  padding: 0.3rem 0
+  font-size: 0.9rem
+
+  .router-link-exact-active
+    opacity: 0.5
+
+.menu > ol > .menu-item:after
+  content: "\f106"
+  position: absolute
+  border-radius: 50%
+  bottom: 2px
+  left: calc(50% - 5px)
+  will-change: transform
+  transform: scale(0)
+  transition: transform 0.2s ease
+  color: $color-white
+  font: normal normal normal 14px/1 FontAwesome
+  font-size: inherit
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+
+.menu > ol > .menu-item:hover:after
+  transform: scale(1)
+
+.menu-item
+  position: relative
+  line-height: 2rem
+  text-align: center
+
+.menu-item a
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  display: block
+  color: $color-white
+  font-weight: 700
+
+.sub-menu .menu-item
+  padding: 0.75rem 0
+  opacity: 0
+  transform-origin: bottom
+  animation: enter 0.2s ease forwards
+  background-color: rgb(182, 89, 112)
+
+.sub-menu .menu-item:nth-child(1)
+  animation-duration: 0.2s
+  animation-delay: 0s
+
+.sub-menu .menu-item:nth-child(2)
+  animation-duration: 0.3s
+  animation-delay: 0.1s
+
+.sub-menu .menu-item:nth-child(3)
+  animation-duration: 0.4s
+  animation-delay: 0.2s
+
+.sub-menu .menu-item:after
+  content: "\f104"
+  position: absolute
+  left: auto
+  right: 1rem
+  bottom: calc(50% - 6px)
+  transform: scale(0)
+  content: "\f104"
+  font: normal normal normal 14px/1 FontAwesome
+  font-size: inherit
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  color: $color-white
+
+.sub-menu .menu-item:hover:after
+  transform: scale(1)
+
+.sub-menu .menu-item a
+  padding: 0 0.75rem
+
+.sub-menu
+  position: absolute
+  font-size: 0.8em
+  width: 100%
+  top: 100%
+  left: 0
+  display: none
+  z-index: 1
+
+.menu-item:hover > .sub-menu
+  display: block
+
+//// GENERAL
+
+body
+  margin: 0
+
+.bg
+  animation: slide 8s ease-in-out infinite alternate
+  background-image: linear-gradient(-60deg, #88B1BB 50%, #F9FAF9 50%)
+  bottom: 0
+  left: -50%
+  opacity: .5
+  position: fixed
+  right: -50%
+  top: 0
+  z-index: -1
+
+.bg2
+  animation-direction: alternate-reverse
+  animation-duration: 6s
+
+.bg3
+  animation-duration: 6s
+
+/* HOME
+
+.wavy-text-container
+  position: relative
+  -webkit-box-reflect: below -33% linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+  text-align: left
+  margin: 2em 3em
+  z-index: -1
+
+  .wavy-text
+    font-weight: 300
+    font-size: 7rem
+    position: relative
+    display: inline-block
+    animation: animate 1.5s ease-in-out infinite
+    animation-iteration-count: 1
+    animation-delay: calc(.1s * var(--i))
+    margin: 0
+
+.welcome-text-container
+  text-align: right
+  margin: 2em 8em
+  line-height: 1.6rem
+
+  a
+    color: $feature
+    font-weight: 700
+
+/* PROJECT-1
+
+.flex
+  display: flex
+
+.project-1
+  .time-container
+    justify-content: flex-start
+    align-items: center
+    margin-top: 1em
+
+  .time-text
+    position: relative
+    font-size: 2em
+    margin-left: 2em
+
+  /// CLOCK
+
+  $clock-size: 200px
+
+  .clock
+    height: $clock-size
+    width: $clock-size
+    border-radius: #{$clock-size / 2}
+    display: flex
+    justify-content: center
+    position: relative
+    background-color: rgba(232, 232, 232, 0.4)
+
+    &__second,
+    &__minute,
+    &__hour, &__indicator
+      position: absolute
+      left: calc(50% - 1px)
+      width: 2px
+      background: $feature-hover
+      transform-origin: bottom center
+      z-index: 2
+      border-radius: 1px
+
+    &__second
+      height: #{$clock-size / 2 - 10}
+      margin-top: 10px
+      background: $feature
+      animation: time 60s infinite steps(60)
+      z-index: 3
+
+    &__minute
+      height: #{$clock-size / 2 - 20}
+      margin-top: 20px
+      opacity: 0.75
+      animation: time 3600s linear infinite
+
+    &__hour
+      height: #{$clock-size / 2 - 40}
+      margin-top: 40px
+      animation: time 43200s linear infinite
+
+    &__indicator
+      height: #{$clock-size / 2 - 10}
+      border-top: 10px solid $feature
+      background: none
+
+    &__axis
+      background: $feature
+      width: 5px
+      height: 5px
+      border-radius: 3px
+      position: absolute
+      z-index: 4
+      top: #{$clock-size / 2 - 3}
+
+  @for $i from 1 through 4
+    section:nth-of-type(#{$i})
+      transform: rotateZ(calc(6deg * 45 * #{$i}))
+
+.drag-drop-container
+  $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1)
+  $to-do: #f4ce46
+  $in-progress: #2a92bf
+  $approved: #00b961
+
+  .input
+    color: #333
+    margin: 0 auto
+    padding: 0.5rem 1rem
+    border-radius: 0.2rem
+    background-color: rgb(255, 255, 255)
+    border: none
+    width: 30%
+    display: block
+    transition: all 0.3s
+
+  h3
+    font-weight: 300
+
+  *
+    box-sizing: border-box
+
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+
+  .drag-container
+    max-width: 1000px
+    margin: 20px auto
+
+  .drag-list
+    display: flex
+    align-items: flex-start
+
+  .drag-column
+    flex: 1
+    margin: 0 10px
+    position: relative
+    background: rgba(232, 232, 232, 0.4)
+    overflow: hidden
+    border-radius: 8px
+
+    h2
+      font-size: 0.7rem
+      margin: 0
+      text-transform: uppercase
+      font-weight: 600
+      color: $feature
+
+    &-to-do
+      .drag-column-header,
+      .drag-options
+        background: $to-do
+
+    &-in-progress
+      .drag-column-header,
+      .drag-options
+        background: $in-progress
+
+    &-approved
+      .drag-column-header,
+      .drag-options
+        background: $approved
+
+  .drag-column-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 10px
+    user-select: none
+    background: $color-white
+    border-top: 1px solid rgba(232, 232, 232, 0.8)
+    border-left: 1px solid rgba(232, 232, 232, 0.8)
+    border-right: 1px solid rgba(232, 232, 232, 0.8)
+
+  .drag-inner-list
+    height: 85vh
+    overflow: auto
+
+  .column-1 .drag-item
+    background: rgb(252, 252, 252)
+
+  .column-2 .drag-item
+    background: rgb(255, 222, 140)
+
+  .column-3 .drag-item
+    background: rgb(144, 212, 144)
+
+    .drag-item-text
+      text-decoration: line-through
+
+  .drag-item
+    margin: 10px
+    height: 100px
+    background: #F5FFFA
+    transition: $ease-out
+    cursor: grab
+    border-radius: 8px
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &[aria-grabbed="true"]
+      background: $color-white
+      opacity: 0.4
+      color: black
+
+    .drag-item-text-container
+      .drag-item-text
+        font-size: 0.9rem
+        cursor: text
+
+      .input
+        width: 60%
+        border: 1px solid $color-lightgray
+
+  .drag-header-more
+    cursor: pointer
+
+  .item-dropzone-area
+    height: 6rem
+    background: #888
+    opacity: 0.8
+    animation-duration: 0.5s
+    animation-name: nodeInserted
+    margin-left: 0.6rem
+    margin-right: 0.6rem
+
+/* PROJECT
+.carousel-view
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .carousel-controls
+    margin: 2em 0.6em
+    cursor: pointer
+
+    &.next
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
+      background-color: rgba(232, 232, 232, 0.4)
+      padding: 10px
+
+      &:hover
+        background-color: rgba(232, 232, 232, 0.6)
+
+      &::after
+        content: "\f105"
+        will-change: transform
+        transform: scale(1)
+        transition: transform 0.2s ease
+        color: $feature
+        font: normal normal normal 14px/1 FontAwesome
+        font-size: inherit
+        text-rendering: auto
+        -webkit-font-smoothing: antialiased
+
+    &.previous
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
+      background-color: rgba(232, 232, 232, 0.4)
+      padding: 10px
+
+      &:hover
+        background-color: rgba(232, 232, 232, 0.6)
+
+      &::after
+        content: "\f104"
+        will-change: transform
+        transform: scale(1)
+        transition: transform 0.2s ease
+        color: $feature
+        font: normal normal normal 14px/1 FontAwesome
+        font-size: inherit
+        text-rendering: auto
+        -webkit-font-smoothing: antialiased
+
+  .carousel
+    display: flex
+    justify-content: center
+    align-items: center
+    overflow: hidden
+    width: 24em
+    min-height: 25em
+
+    .slide
+      flex: 0 0 20em
+      height: 20em
+      margin: 1em
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      border: 0.1em dashed #000
+      border-radius: 50%
+      transition: transform 0.3s ease-in-out
+
+      .slide-image
+
+      h4
+
+    .slide:first-of-type
+      opacity: 0
+
+    .slide:last-of-type
+      opacity: 0
+
+/* ABOUT
+
+.about-content
+  display: block
+  position: relative
+  top: 1.5em
+
+  p
+    max-width: 70%
+    line-height: 1.6em
+
+    a
+      color: $feature
+      font-weight: 600
+
+  .me-content-container
+    display: flex
+    align-items: center
+    flex-direction: row
+    margin: 0 2em
+
+    .picture-me
+      height: 250px
+      width: 250px
+      margin-right: 3em
+
+  .toggle-content-container
+    display: flex
+    justify-content: center
+    margin: 3em 1em
+
+  /// Timeline
+
+  .timeline-container
+    position: relative
+    width: 50%
+    color: $color-black
+    span
+      flex-wrap: wrap
+      flex-direction: column
+      font-size: 1em
+      line-height: 1.75em
+      border-top: 3px solid
+      border-image: linear-gradient(to right, $feature-hover 0%, $feature 100%)
+      border-image-slice: 1
+      border-width: 3px
+      margin: 0
+      padding: 40px
+      counter-increment: section
+      position: relative
+      color: $color-black
+      max-width: 100%
+
+      &:before
+        content: ""
+        position: absolute
+        border-radius: 50%
+        padding: 10px
+        height: 0.25em
+        width: 0.25em
+        background-color: $feature
+
+      p
+        max-width: 100%
+        margin: 0
+        &:first-of-type
+          font-weight: 600
+
+      time
+        opacity: 0.7
+
+    span:nth-child(odd)
+      border-right: 3px solid
+
+      &:before
+        left: 98.5%
+
+    span:nth-child(even)
+      border-left: 3px solid
+
+      &:before
+        right: 98.5%
+
+    span:first-child
+      border-top: 0
+      border-top-right-radius: 0
+      border-top-left-radius: 0
+
+    span:last-child
+      border-bottom-right-radius: 0
+      border-bottom-left-radius: 0
+
+
+/* Skills
+
+.skills-container
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  cursor: pointer
+
+  p
+    max-width: 80%
+    line-height: 1.6em
+
+.skills-content
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: $feature
+  color: $color-white
+  position: relative
+  border-radius: 50%
+  height: 100px
+  width: 100px
+  margin: 1rem
