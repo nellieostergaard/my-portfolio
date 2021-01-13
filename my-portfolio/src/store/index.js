@@ -31,8 +31,7 @@ export default new Vuex.Store({
       {
         datetime: "2018 - 2019",
         company: "IKEA",
-        event:
-          "Office support for the IKEA office in Hubhult"
+        event: "Office support for the IKEA office in Hubhult"
       },
       {
         datetime: "2014-2018",
@@ -47,8 +46,7 @@ export default new Vuex.Store({
       {
         datetime: "2016",
         company: "Rochester Institute of Technology",
-        event:
-          "Exchange study program in Rochester, USA."
+        event: "Exchange study program in Rochester, USA."
       }
     ],
     showTimeline: false,

@@ -2,10 +2,6 @@
   <div class="carousel-view">
     <transition-group class="carousel" tag="div">
       <div v-for="slide in slides" class="slide" :key="slide.id">
-        <div class="carousel-controls">
-          <span class="carousel-controls previous" @click="previous"></span>
-          <span class="carousel-controls next" @click="next"></span>
-        </div>
         <img
           class="slide-image"
           :src="require('../assets/images/' + slide.img)"
@@ -13,6 +9,10 @@
         <h4>{{ slide.title }}</h4>
       </div>
     </transition-group>
+    <div class="carousel-controls">
+      <span class="carousel-controls previous" @click="previous"></span>
+      <span class="carousel-controls next" @click="next"></span>
+    </div>
   </div>
 </template>
 
