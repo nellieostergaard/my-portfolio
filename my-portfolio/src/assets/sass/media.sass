@@ -1,106 +1,88 @@
 /* Media Query
 
-/* Responsive on screens less than 600px wide
-
 @media screen and (max-width: 600px)
   #app
     .page-wrapper
       z-index: 2
-
-    .welcome-text-container, .wavy-text-container
-      margin: 0
-      text-align: center
-      font-size: 1em
-
-    .wavy-text-container
-      font-size: 2em
-
-    .menu
+      top: 3em
       position: relative
-
-      .menu-hamburger
-        display: block
-        position: absolute
-        right: 0em
-        width: 45px
-        height: 40px
-        padding: 8px
-
-        &:after
+    /* Home start */
+    .welcome-text-container, .wavy-text-container
+      text-align: right
+      margin: 0
+      line-height: 1.2rem
+      h2
+        font-size: 1rem
+      p
+        padding-left: 10em
+        font-size: 0.6rem
+    .bg:before
+      border-width: 8em
+    /* Home end */
+    /* Navigation start */
+    nav
+      box-shadow: 0px 3px 5px -1px #ccc
+      ul 
+        display: none
+        li:hover > ul,
+        li ul:hover
+          visibility: visible
+          opacity: 1
+          display: block
+          z-index: 4
+          min-width: 250px
+          text-align: left
+          padding-top: 20px
+          box-shadow: 0px 3px 5px -1px #ccc
+      &.Home ul
+        padding-left: 0
+      .nav-icon
+        display: flex
+        .navicon:after
           box-shadow: none
           content: ""
           position: absolute
-          top: calc(50% - 2px)
+          top: 1.5em
           right: 1rem
           width: 30px
           height: 2px
-          background: $color-white
-          box-shadow: 0 10px $color-white, 0 -10px $color-white
-
-      &.dropdown-active
-        .menu-hamburger:after
-          box-shadow: none
-        ol
+          background: black
+          z-index: 2
+          box-shadow: 0 10px black, 0 -10px black
+      .nav-btn
+        display: flex
+        cursor: pointer
+        position: absolute
+        top: 2em
+        opacity: 0
+        right: 1rem
+        width: 2em
+        height: 2em
+        user-select: none
+        &:checked ~ .nav-icon .navicon:after
+          background: $feature
+          box-shadow: 0 0 $feature, 0 0 $feature
+        &:checked ~ ul 
+          max-height: 240px
           display: flex
+          flex-direction: column
+          top: 2em
+          position: absolute
+          background-color: white
+          z-index: 2
+          width: 100%
+          box-shadow: 0px 3px 5px -1px #ccc
+          padding: 0
+          li 
+            padding: 1em 3em
+            border-left: none
+            a:hover
+              padding-left: 10px
+              border-left: 2px solid $feature
+              transition: all 0.3s ease
+    /* Navigation end */
 
-        .sub-menu
-          display: none
-          width: 100vw
-          position: relative
-          left: -2rem
-          top: 50%
-          transform: translateY(-50%)
-
-        .menu-item:hover > .sub-menu
-          display: block
-
-    .menu > ol
-      display: none
-      background: $feature
-      flex-direction: column
-      justify-content: center
-      height: 60vh
-      animation: fade 0.2s ease-out
-
-    .menu > ol > .menu-item
-      flex: 0
-      opacity: 0
-      animation: enter 0.3s ease-out forwards
-
-    .menu > ol > .menu-item:nth-child(1)
-      animation-delay: 0s
-
-    .menu > ol > .menu-item:nth-child(2)
-      animation-delay: 0.1s
-
-    .menu > ol > .menu-item:nth-child(3)
-      animation-delay: 0.2s
-
-    .menu > ol > .menu-item:nth-child(4)
-      animation-delay: 0.3s
-
-    .menu > ol > .menu-item:nth-child(5)
-      animation-delay: 0.4s
-
-    .menu > ol > .menu-item + .menu-item
-      margin-top: 0.75rem
-
-    .menu > ol > .menu-item:after
-      left: auto
-      right: 1rem
-      bottom: calc(50% - 6px)
-      content: "\f104"
-      font: normal normal normal 14px/1 FontAwesome
-      font-size: inherit
-      text-rendering: auto
-      -webkit-font-smoothing: antialiased
-
-    .menu > ol > .menu-item:hover
-      z-index: 1
-
-    .clock
-      display: none
-
+    /* About start */
     .about-content
       p
         max-width: 100%
@@ -123,8 +105,12 @@
             left: 96%
           span:nth-child(even):before
             right: 96%
+    /* About end */
 
+    /* Project 1 start */
     .project-1
+      .clock
+        display: none
       .time-container
         justify-content: center
 
@@ -142,7 +128,8 @@
         .drag-column
           @media (max-width: 690px)
             margin-bottom: 30px
-
+    /* Project 1 end */
+    /* Project 2 start */
     .project-2
       flex-direction: column
       margin-top: 2rem
@@ -153,6 +140,7 @@
         max-width: 100%
         background-color: white
         padding: 10px
+    /* Project 2 end */
 
 @media screen and (min-width: 1024px) and (max-width: 1024px)
   #app

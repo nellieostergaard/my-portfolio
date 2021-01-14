@@ -15,12 +15,13 @@ body
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: black
-  height: 100%
+  height: 100vh
+  width: 100%
 
   .page-wrapper
     padding: 20px
     z-index: 1
-    height: 100%
+    height: 90%
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, #EAE7DC 100%)
 
   a
@@ -36,6 +37,8 @@ body
     background-color: rgba(230, 230, 230, 0.2)
     width: 100%
 
+.flex
+  display: flex
 
 .bg
   flex-direction: column
@@ -64,7 +67,7 @@ body
     border-radius: 0.4em
     border-width: 12em
 
-// BUTTON
+/* BUTTON */
 $thick: 3px
 $pad: 0.7em
 $extra: calc(#{$pad} * 1.2)
@@ -166,17 +169,19 @@ $extra: calc(#{$pad} * 1.2)
         transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s
         transform-origin: left
 
-// NAVBAR
+/* NAVBAR */
 nav
-  &.primary-navigation
     margin: 0 auto
     display: block
     text-align: center
     font-size: 0.9rem
 
-    ul
+    .nav-btn, .nav-icon
+      display: none
+
+    &.Home ul
       padding-left: 25%
-      li
+    ul li
         list-style: none
         margin: 0 auto
         border-left: 2px solid $feature
@@ -185,27 +190,25 @@ nav
         position: relative
         text-decoration: none
         text-align: center
+        ul
+          visibility: hidden
+          opacity: 0
+          position: absolute
+          padding-left: 0
+          left: 0
+          display: none
+          background: white
 
     .dropdown
       border-radius: 4%
  
     li a
       color: black
-
-    li a:hover
-      color: $feature
+      &:hover
+        color: $feature
 
     li:hover
       cursor: pointer
-
-    ul li ul
-      visibility: hidden
-      opacity: 0
-      position: absolute
-      padding-left: 0
-      left: 0
-      display: none
-      background: white
 
     ul li:hover > ul,
     ul li ul:hover
@@ -223,20 +226,10 @@ nav
       text-align: left
       margin-bottom: 20px
       border-style: none
-
-    ul li ul li a:hover
-      padding-left: 10px
-      border-left: 2px solid $feature
-      transition: all 0.3s ease
-
-a
-  text-decoration: none
-
-  &:hover
-    color: $feature
-
-ul li ul li a
-  transition: all 0.5s ease
+      a:hover
+        padding-left: 10px
+        border-left: 2px solid $feature
+        transition: all 0.3s ease
 
 /* HOME */
 .wavy-text-container
@@ -262,7 +255,7 @@ ul li ul li a
   line-height: 1.6rem
   h2 
     font-size: 2rem
-    color: #8E8D8A
+    color: $color-black
   p 
     color: black
 
@@ -277,19 +270,19 @@ ul li ul li a
 
 /* PROJECT-1
 
-.flex
-  display: flex
-
 .project-1
+  display: flex
+  flex-direction: row
   .time-container
     justify-content: flex-start
-    align-items: center
     margin-top: 1em
+    width: 50%
 
   .time-text
     position: relative
     font-size: 2em
     margin-left: 2em
+    align-self: center
 
   /// CLOCK
 
@@ -310,7 +303,7 @@ ul li ul li a
       position: absolute
       left: calc(50% - 1px)
       width: 2px
-      background: $feature-hover
+      background: $brown 
       transform-origin: bottom center
       z-index: 2
       border-radius: 1px
@@ -356,6 +349,7 @@ ul li ul li a
   $to-do: #f4ce46
   $in-progress: #2a92bf
   $approved: #00b961
+  width: 50%
 
   .input
     color: #333
@@ -391,7 +385,8 @@ ul li ul li a
     flex: 1
     margin: 0 10px
     position: relative
-    background: rgba(232, 232, 232, 0.4)
+    background: rgb(245, 245, 245)
+    border: 1px solid rgba(232, 232, 232, 0.8)
     overflow: hidden
     border-radius: 8px
 
@@ -423,17 +418,14 @@ ul li ul li a
     justify-content: space-between
     padding: 10px
     user-select: none
-    background: $color-white
-    border-top: 1px solid rgba(232, 232, 232, 0.8)
-    border-left: 1px solid rgba(232, 232, 232, 0.8)
-    border-right: 1px solid rgba(232, 232, 232, 0.8)
 
   .drag-inner-list
-    height: 85vh
+    height: 55vh
     overflow: auto
 
   .column-1 .drag-item
-    background: rgb(252, 252, 252)
+    background: #c6c6c6
+    color: white
 
   .column-2 .drag-item
     background: rgb(255, 222, 140)
@@ -467,7 +459,7 @@ ul li ul li a
 
       .input
         width: 60%
-        border: 1px solid $color-lightgray
+        border: 1px solid white
 
   .drag-header-more
     cursor: pointer
@@ -590,7 +582,7 @@ ul li ul li a
 
     a
       font-weight: 600
-      color: #8E8D8A
+      color: $color-black
       text-decoration: underline !important
 
   .me-content-container
@@ -621,7 +613,7 @@ ul li ul li a
       font-size: 1em
       line-height: 1.75em
       border-top: 3px solid
-      border-image: linear-gradient(to right, $feature-hover 0%, $feature 100%)
+      border-image: linear-gradient(to right, $feature 0%, $feature 100%)
       border-image-slice: 1
       border-width: 3px
       margin: 0
@@ -643,6 +635,7 @@ ul li ul li a
       p
         max-width: 100%
         margin: 0
+        color: black
         &:first-of-type
           font-weight: 600
 

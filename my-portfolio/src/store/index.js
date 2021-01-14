@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     showDropDownMenu: false,
+    atPage: "Home",
     bigHello: [
       { letter: "H", style: "--i:1;" },
       { letter: "e", style: "--i:2;" },
@@ -105,6 +106,9 @@ export default new Vuex.Store({
   mutations: {
     toggleMobileMenu(state) {
       state.showDropDownMenu = !state.showDropDownMenu;
+    },
+    atPage(state, page) {
+      state.atPage = page;
     },
     setWeatherData(state, data) {
       let weatherData = data.body.list[0];
