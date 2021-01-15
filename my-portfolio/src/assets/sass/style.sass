@@ -12,7 +12,8 @@ body
   background-size: cover
 
 html, body
-  min-height: 100%
+  min-height: 100vh
+  overflow-x: hidden
 
 #app
   font-family: 'Dosis', sans-serif
@@ -24,7 +25,7 @@ html, body
   .page-wrapper
     padding: 20px
     z-index: 1
-    height: 90%
+    top: 0
 
   a
     text-decoration: none
@@ -426,8 +427,7 @@ nav
     overflow: auto
 
   .column-1 .drag-item
-    background: #c6c6c6
-    color: white
+    background: rgb(140, 196, 255)
 
   .column-2 .drag-item
     background: rgb(255, 222, 140)
@@ -478,11 +478,13 @@ nav
 /* PROJECT-2 */
 .project-2
   flex-direction: row
+  background-color: white
+  padding: 2em
   .commerce-text
     flex-direction: column
     align-items: flex-start
     max-width: 45%
-    margin: 2rem 4rem
+    margin: 2rem 1rem
     h3 
       align-items: flex-end
       i 
@@ -494,82 +496,93 @@ nav
       &.small
         font-size: .8rem
         opacity: 0.6
-.carousel-view
-  display: flex
-  flex-direction: column
-  align-items: center
-  width: 55%
-
-  .carousel-controls
-    margin: 2em 0.6em
-    cursor: pointer
-
-    &.next
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
-      background-color: rgba(232, 232, 232, 0.4)
-      padding: 10px
-
-      &:hover
-        background-color: rgba(232, 232, 232, 0.6)
-
-      &::after
-        content: "\f105"
-        will-change: transform
-        transform: scale(1)
-        transition: transform 0.2s ease
-        color: $feature
-        font: normal normal normal 14px/1 FontAwesome
-        font-size: inherit
-        text-rendering: auto
-        -webkit-font-smoothing: antialiased
-
-    &.previous
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
-      background-color: rgba(232, 232, 232, 0.4)
-      padding: 10px
-
-      &:hover
-        background-color: rgba(232, 232, 232, 0.6)
-
-      &::after
-        content: "\f104"
-        will-change: transform
-        transform: scale(1)
-        transition: transform 0.2s ease
-        color: $feature
-        font: normal normal normal 14px/1 FontAwesome
-        font-size: inherit
-        text-rendering: auto
-        -webkit-font-smoothing: antialiased
-
-  .carousel
+    select, button
+      margin: 1em 0
+  .images-container
     display: flex
-    justify-content: center
+    flex-direction: row
+    flex-wrap: wrap
+    width: 50%
+    margin: 2rem 1rem
+    .product-image
+      margin: 0.5em
+      img 
+        height: 15em
+        width: 15em
+        object-fit: cover
+  .carousel-view
+    display: none
+    flex-direction: column
     align-items: center
-    overflow: hidden
-    width: 100%
+    width: 45%
 
-    .slide
-      flex: 0 0 20em
-      height: 20em
-      margin: 1em
+    .carousel-controls
+      margin: 2em 0.6em
+      cursor: pointer
+
+      &.next
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
+        background-color: rgba(232, 232, 232, 0.4)
+        padding: 10px
+
+        &:hover
+          background-color: rgba(232, 232, 232, 0.6)
+
+        &::after
+          content: "\f105"
+          will-change: transform
+          transform: scale(1)
+          transition: transform 0.2s ease
+          color: $feature
+          font: normal normal normal 14px/1 FontAwesome
+          font-size: inherit
+          text-rendering: auto
+          -webkit-font-smoothing: antialiased
+
+      &.previous
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3)
+        background-color: rgba(232, 232, 232, 0.4)
+        padding: 10px
+
+        &:hover
+          background-color: rgba(232, 232, 232, 0.6)
+
+        &::after
+          content: "\f104"
+          will-change: transform
+          transform: scale(1)
+          transition: transform 0.2s ease
+          color: $feature
+          font: normal normal normal 14px/1 FontAwesome
+          font-size: inherit
+          text-rendering: auto
+          -webkit-font-smoothing: antialiased
+
+    .carousel
       display: flex
-      flex-direction: column
       justify-content: center
       align-items: center
-      border: 0.1em dashed #000
-      border-radius: 50%
-      transition: transform 0.3s ease-in-out
+      overflow: hidden
+      width: 100%
 
-      .slide-image
+      .slide
+        flex: 0 0 20em
+        margin: 1em
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        transition: transform 0.3s ease-in-out
 
-      h4
+        .slide-image
+          height: 20em
+          object-fit: cover
 
-    .slide:first-of-type
-      opacity: 0
+      .slide:first-of-type
+        opacity: 0
 
-    .slide:last-of-type
-      opacity: 0
+      .slide:last-of-type
+        opacity: 0
 
 /* ABOUT
 

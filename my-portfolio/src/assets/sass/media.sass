@@ -18,12 +18,18 @@
       p
         padding-left: 10em
         font-size: 0.6rem
+      hr 
+        top: 5em
+        left: 4em
     .bg:before
       border-width: 8em
     /* Home end */
+
     /* Navigation start */
     nav
       box-shadow: 0px 3px 5px -1px #ccc
+      height: 3em
+      background: white
       ul 
         display: none
         li:hover > ul,
@@ -36,10 +42,15 @@
           text-align: left
           padding-top: 20px
           box-shadow: 0px 3px 5px -1px #ccc
-      &.Home ul
+      &[page="Home"] ul
         padding-left: 0
       .nav-icon
         display: flex
+        width: 100%
+        height: 3em
+        position: fixed
+        z-index: 2
+        background: white
         .navicon:after
           box-shadow: none
           content: ""
@@ -55,7 +66,7 @@
         display: flex
         cursor: pointer
         position: absolute
-        top: 2em
+        top: 1em
         opacity: 0
         right: 1rem
         width: 2em
@@ -113,15 +124,19 @@
 
     /* Project 1 start */
     .project-1
+      flex-direction: column
+      align-items: center
       .clock
         display: none
       .time-container
         justify-content: center
+        width: 100%
 
         .time-text
           margin: 0
 
       .drag-drop-container
+        width: 100%
         .input
           width: 50%
 
@@ -139,6 +154,9 @@
       margin-top: 2rem
       .carousel-view 
         width: 100%
+        display: flex
+      .images-container
+        display: none
       .commerce-text
         margin: 0
         max-width: 100%
