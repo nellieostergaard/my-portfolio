@@ -50,7 +50,7 @@ html, body
   p 
     z-index: 1
     margin: 0.5em
-    color: #E85A4F
+    color: $feature
     &:first-of-type
       font-size: 1.5rem
     &:nth-of-type(2)
@@ -333,10 +333,6 @@ nav
       transform: rotateZ(calc(6deg * 45 * #{$i}))
 
 .drag-drop-container
-  $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1)
-  $to-do: #f4ce46
-  $in-progress: #2a92bf
-  $approved: #00b961
   width: 50%
 
   .input
@@ -579,7 +575,8 @@ nav
     line-height: 1.6em
 
     a
-      font-weight: 600
+      font-style: italic
+      opacity: 0.7
 
   .me-content-container
     display: flex
@@ -599,7 +596,7 @@ nav
     justify-content: center
     margin: 3em 1em
 
-  /// Timeline
+  /* Timeline */
 
   .timeline-container
     position: relative
@@ -662,29 +659,29 @@ nav
       border-bottom-left-radius: 0
 
 
-/* Skills
+  /* Skills */
 
-.skills-container
-  display: flex
-  justify-content: center
-  flex-wrap: wrap
-  cursor: pointer
+  .skills-container
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    cursor: pointer
 
-  p
-    max-width: 80%
-    line-height: 1.6em
+    p
+      max-width: 80%
+      line-height: 1.6em
 
-.skills-content
-  display: flex
-  align-items: center
-  justify-content: center
-  background-color: $feature
-  color: white
-  position: relative
-  border-radius: 50%
-  height: 100px
-  width: 100px
-  margin: 1rem
+  .skills-content
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $feature
+    color: white
+    position: relative
+    border-radius: 50%
+    height: 100px
+    width: 100px
+    margin: 1rem
 
 /* Transitions */
 .fade-enter-active,
