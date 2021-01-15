@@ -5,15 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    showDropDownMenu: false,
     atPage: "Home",
-    bigHello: [
-      { letter: "H", style: "--i:1;" },
-      { letter: "e", style: "--i:2;" },
-      { letter: "l", style: "--i:3;" },
-      { letter: "l", style: "--i:4;" },
-      { letter: "o", style: "--i:5;" }
-    ],
     textMe:
       "I've been working as a frontend developer for a e-commerce company for two years now and I use <a>Vue.js</a> as prefered framework. My previous studies consists of a 3 year long Interaction design programme at Malmö University and 1 year of psychology courses in Lund. Besides this, I live in Malmö with my son Hannes and my boyfriend Linus, who also works in programming.",
     textSkills:
@@ -104,9 +96,6 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    toggleMobileMenu(state) {
-      state.showDropDownMenu = !state.showDropDownMenu;
-    },
     atPage(state, page) {
       state.atPage = page;
     },

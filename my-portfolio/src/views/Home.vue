@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="bg flex">
+    <div class="bg">
       <p>Nellie Östergaard</p>
       <p>Frontend Developer</p>
     </div>

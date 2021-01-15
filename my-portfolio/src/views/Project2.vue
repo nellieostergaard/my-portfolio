@@ -1,5 +1,5 @@
 <template>
-  <div class="project-2 flex">
+  <div class="project-2">
     <Carousel
       :slides="productImages"
       @nextSlide="nextSlide()"
@@ -10,7 +10,7 @@
         <img :src="require('../assets/images/' + image.img)" />
       </div>
     </div>
-    <div class="commerce-text flex">
+    <div class="commerce-text">
       <h3 class="title flex">
         Air Jordan 1 - Satin Red
         <i :class="heartClass" aria-hidden="true" @click="heartClicked()" />

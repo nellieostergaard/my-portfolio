@@ -1,3 +1,5 @@
+@import '../sass/mixins.sass'
+
 /* Media Query
 
 @media screen and (max-width: 600px)
@@ -77,8 +79,7 @@
           box-shadow: 0 0 $feature, 0 0 $feature
         &:checked ~ ul 
           max-height: 240px
-          display: flex
-          flex-direction: column
+          @include flex-column
           top: 2em
           position: absolute
           background-color: white
@@ -101,9 +102,8 @@
         max-width: 100%
 
       .me-content-container
-        display: flex
+        @include flex-column
         justify-content: center
-        flex-direction: column
         margin: 0
 
         img
@@ -124,7 +124,7 @@
 
     /* Project 1 start */
     .project-1
-      flex-direction: column
+      @include flex-column
       align-items: center
       .clock
         display: none
@@ -150,11 +150,11 @@
     /* Project 1 end */
     /* Project 2 start */
     .project-2
-      flex-direction: column
+      @include flex-column
       margin-top: 2rem
       .carousel-view 
         width: 100%
-        display: flex
+        @include flex-column
       .images-container
         display: none
       .commerce-text
@@ -166,8 +166,6 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1024px)
   #app
-    .wavy-text-container
-      margin: 0 2em
     .welcome-text-container
       margin: 2em
 

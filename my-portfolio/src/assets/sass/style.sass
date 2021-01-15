@@ -2,6 +2,7 @@
 @import '../sass/keyframes.sass'
 @import '../sass/colors.sass'
 @import '../sass/media.sass'
+@import '../sass/mixins.sass'
 
 html
   font-size: 22px
@@ -44,7 +45,7 @@ html, body
   display: flex
 
 .bg
-  flex-direction: column
+  @include flex-column
   align-items: flex-start
   p 
     z-index: 1
@@ -235,22 +236,6 @@ nav
         transition: all 0.3s ease
 
 /* HOME */
-.wavy-text-container
-  position: relative
-  -webkit-box-reflect: below -33% linear-gradient(transparent, rgba(0, 0, 0, 0.2))
-  text-align: left
-  margin: 2em 3em
-  z-index: -1
-
-  .wavy-text
-    font-weight: 300
-    font-size: 7rem
-    position: relative
-    display: inline-block
-    animation: animate 1.5s ease-in-out infinite
-    animation-iteration-count: 1
-    animation-delay: calc(.1s * var(--i))
-    margin: 0
 
 .welcome-text-container
   text-align: right
@@ -481,7 +466,7 @@ nav
   background-color: white
   padding: 2em
   .commerce-text
-    flex-direction: column
+    @include flex-column
     align-items: flex-start
     max-width: 45%
     margin: 2rem 1rem
@@ -512,7 +497,6 @@ nav
         object-fit: cover
   .carousel-view
     display: none
-    flex-direction: column
     align-items: center
     width: 45%
 
@@ -568,8 +552,7 @@ nav
       .slide
         flex: 0 0 20em
         margin: 1em
-        display: flex
-        flex-direction: column
+        @include flex-column
         justify-content: center
         align-items: center
         transition: transform 0.3s ease-in-out
@@ -623,8 +606,8 @@ nav
     width: 50%
     color: $color-black
     span
+      @include flex-column
       flex-wrap: wrap
-      flex-direction: column
       font-size: 1em
       line-height: 1.75em
       border-top: 3px solid
